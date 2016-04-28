@@ -76,8 +76,8 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Frame x:Name="MainFrame" CacheSize="4"
-                                cm:Message.Attach="[Event Loading] = [SetupDesktopMainNavigationService($source)]"
+                        <Frame x:Name="MainFrame"
+                                cm:Message.Attach="[Event Loaded] = [SetupDesktopMainNavigationService($source)]"
                                 DataContext="{x:Null}">
                             <Frame.ContentTransitions>
                                 <TransitionCollection>
@@ -96,7 +96,7 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>                        
                         <Frame x:Name="ContentFrame" TabIndex="1"
-                                cm:Message.Attach="[Event Loading] = [SetupDesktopContentNavigationService($source)]"
+                                cm:Message.Attach="[Event Loaded] = [SetupDesktopContentNavigationService($source)]"
                                 DataContext="{x:Null}">
                             <Frame.ContentTransitions>
                                 <TransitionCollection>

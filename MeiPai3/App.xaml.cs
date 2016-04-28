@@ -24,8 +24,8 @@ namespace MeiPai3
             base.Configure();
 
             _container.PerRequest<MainViewModel>()
-                .PerRequest<InitMainViewModel>()
                 .PerRequest<CollectViewModel>()
+                .PerRequest<InitMainViewModel>()
                 .PerRequest<InitContentViewModel>();
 
             _container.RegisterSingleton(typeof(INotifyFrameChanged), string.Empty, typeof(PhoneFrameMgr));

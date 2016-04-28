@@ -5,6 +5,8 @@
 *********************************************************************************/
 
 using WeYa.Core;
+using WeYa.Domain.Models;
+using WeYa.Tools.Utils;
 
 namespace MeiPai3.ViewModels
 {
@@ -23,13 +25,22 @@ namespace MeiPai3.ViewModels
                 }
             }
         }
-
+        private GeneratingDataSource dataSource { get; set; }
+        public IncrementalLoadingCollection<IncrementedItem> InfiniteItems { get; set; }
         public InitContentViewModel(INotifyFrameChanged frame) 
             : base(frame)
         {
+            dataSource = new GeneratingDataSource();
+
         }
+        public void ContentService()
+        {
+            InfiniteItems = new IncrementalLoadingCollection<IncrementedItem>(dataSource);
+        }
+
         public void ShowClickItem()
         {
+
             //_frame.ContentNavigationService.For<AboutViewModel>().Navigate();
             //_frame.MainNavigationService.For<InitMainViewModel>()
             //  .WithParam(vm => vm.Title, categoryInfo.Label)
