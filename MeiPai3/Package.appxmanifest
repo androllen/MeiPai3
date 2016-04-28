@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="9c5c54fa-66d2-464c-9c48-5551508eeed4"
+    Name="7bc26894-ca3a-4389-bc1a-d15b2775e028"
     Publisher="CN=androllen"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="9c5c54fa-66d2-464c-9c48-5551508eeed4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="7bc26894-ca3a-4389-bc1a-d15b2775e028" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>MeiPai3</DisplayName>
