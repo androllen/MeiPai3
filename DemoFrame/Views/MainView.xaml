@@ -7,6 +7,7 @@
     xmlns:cm="using:Caliburn.Micro"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:model="using:WeYa.Domain"
+    xmlns:trigger="using:MeiPai3.Trigger"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
@@ -115,30 +116,51 @@
           </SplitView>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:Name="LargeWideLayout">
+                <VisualState x:Name="Show12">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger x:Name="LargeWideLayoutTrigger" MinWindowWidth="800"/>
+                        <trigger:DeviceAdaptiveTrigger adaptiveType="Show12"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="splitView.IsPaneOpen" Value="True" />
+                        <Setter Target="MainGrid.Visibility" Value="Visible"/>
+                        <Setter Target="ContentGrid.Visibility" Value="Visible"/>
+                        
+                        <Setter Target="MainGrid.(Grid.Column)" Value="0" />
+                        <Setter Target="MainGrid.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ContentGrid.(Grid.Column)" Value="1" />
+                        <Setter Target="ContentGrid.(Grid.ColumnSpan)" Value="1" />                        
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="WideLayout">
+                <VisualState x:Name="Show1">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger x:Name="WideLayoutTrigger" MinWindowWidth="648"/>
+                        <trigger:DeviceAdaptiveTrigger  adaptiveType="Show1"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="splitView.IsPaneOpen" Value="False" />
-                        <Setter Target="splitView.Visibility" Value="Visible" />
+                        <Setter Target="splitView.DisplayMode" Value="Overlay" />
+                        <Setter Target="MainGrid.Visibility" Value="Visible"/>
+                        <Setter Target="ContentGrid.Visibility" Value="Collapsed"/>
+                    
+                        <Setter Target="MainGrid.(Grid.Column)" Value="0" />
+                        <Setter Target="MainGrid.(Grid.ColumnSpan)" Value="2" />
+                        <Setter Target="ContentGrid.(Grid.Column)" Value="1" />
+                        <Setter Target="ContentGrid.(Grid.ColumnSpan)" Value="1" />                            
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="NarrowLayout">
+                <VisualState x:Name="Show2">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
+                        <trigger:DeviceAdaptiveTrigger adaptiveType="Show2"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="splitView.Visibility" Value="Collapsed" />
-                        <Setter Target="newFrame.Visibility" Value="Visible" />
+                        <Setter Target="splitView.IsPaneOpen" Value="False" />
+                        <Setter Target="splitView.DisplayMode" Value="Overlay" />
+                        <Setter Target="MainGrid.Visibility" Value="Collapsed"/>
+                        <Setter Target="ContentGrid.Visibility" Value="Visible"/>  
+                        
+                        <Setter Target="MainGrid.(Grid.Column)" Value="0" />
+                        <Setter Target="MainGrid.(Grid.ColumnSpan)" Value="1" />
+                        <Setter Target="ContentGrid.(Grid.Column)" Value="0" />
+                        <Setter Target="ContentGrid.(Grid.ColumnSpan)" Value="2" />                            
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
