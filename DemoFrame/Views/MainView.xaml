@@ -73,16 +73,16 @@
             <SplitView.Content>
                  <Grid x:Name="myContentPanel">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" MinWidth="300" />
-                        <ColumnDefinition Width="3*" MinWidth="200" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>                
                     <Grid.ChildrenTransitions>
                         <TransitionCollection>
                             <EntranceThemeTransition/>
                         </TransitionCollection>
                     </Grid.ChildrenTransitions>
-                    <Grid x:Name="MainGrid" Background="Gray"  BorderBrush="Blue" BorderThickness="1">
-                        <Frame x:Name="MainFrame" CacheSize="4"
+                    <Grid x:Name="MainGrid" Background="Gray"  BorderBrush="Blue" BorderThickness="1" >
+                        <Frame x:Name="MainFrame" CacheSize="4" MinWidth="300"
                                 cm:Message.Attach="[Event Loading] = [SetupDesktopMainNavigationService($source)]"
                                 DataContext="{x:Null}">
                             <Frame.ContentTransitions>
@@ -96,8 +96,8 @@
                             </Frame.ContentTransitions>
                         </Frame>
                     </Grid>     
-                    <Grid Name="ContentGrid" Grid.Column="1"  BorderBrush="Green" BorderThickness="1">
-                        <Frame x:Name="ContentFrame" TabIndex="1"
+                    <Grid Name="ContentGrid" Grid.Column="1"  BorderBrush="Green" BorderThickness="1" >
+                        <Frame x:Name="ContentFrame" TabIndex="1" MinWidth="200"
                                 cm:Message.Attach="[Event Loading] = [SetupDesktopContentNavigationService($source)]"
                                 DataContext="{x:Null}">
                             <Frame.ContentTransitions>
@@ -121,7 +121,7 @@
                         <trigger:DeviceAdaptiveTrigger adaptiveType="Show12"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="splitView.IsPaneOpen" Value="True" />
+                        <Setter Target="splitView.IsPaneOpen" Value="False" />
                         <Setter Target="MainGrid.Visibility" Value="Visible"/>
                         <Setter Target="ContentGrid.Visibility" Value="Visible"/>
                         

@@ -61,11 +61,7 @@
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Border Background="{ThemeResource SystemControlHighlightListAccentHighBrush}">
-                        <Image  Stretch="None" >
-                            <Image.Source>
-                                <BitmapImage UriSource="{Binding Title}" DecodePixelHeight="200" DecodePixelWidth="200"/>
-                            </Image.Source>
-                        </Image>
+                        <Image  Stretch="Uniform" Source="{Binding Title}"/>
                     </Border>
                 </DataTemplate>
             </GridView.ItemTemplate>

@@ -68,11 +68,15 @@ namespace DemoFrame.Views
         private void headerRoot_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double gap = e.NewSize.Width;
-            System.Diagnostics.Debug.WriteLine("Width :" + gap.ToString());
+        //    System.Diagnostics.Debug.WriteLine("Width :" + gap.ToString());
             if (gap >= 800.0)
             {
                 splitView.IsPaneOpen = true;
                 isOpen = true;
+            }else if (gap >= 648 && gap <= 800)
+            {
+                splitView.IsPaneOpen = false;
+                isOpen = false;
             }
         }
     }
