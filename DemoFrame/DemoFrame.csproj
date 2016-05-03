@@ -213,19 +213,19 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Source\DemoControl\CCUWPToolkit\CCUWPToolkit.csproj">
+    <ProjectReference Include="..\..\DemoControl\CCUWPToolkit\CCUWPToolkit.csproj">
       <Project>{057ca838-c89f-4130-a391-aa8df7ac1886}</Project>
       <Name>CCUWPToolkit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Source\DemoFrame\WeYa.Core\WeYa.Core.csproj">
+    <ProjectReference Include="..\..\DemoFrame\WeYa.Core\WeYa.Core.csproj">
       <Project>{aa37d92f-55da-43cd-92c3-afff1b8ba7c8}</Project>
       <Name>WeYa.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Source\DemoFrame\WeYa.Domain\WeYa.Domain.csproj">
+    <ProjectReference Include="..\..\DemoFrame\WeYa.Domain\WeYa.Domain.csproj">
       <Project>{b855d265-f94f-4766-9fdd-086d2c768037}</Project>
       <Name>WeYa.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Source\DemoFrame\WeYa.Tools\WeYa.Tools.csproj">
+    <ProjectReference Include="..\..\DemoFrame\WeYa.Tools\WeYa.Tools.csproj">
       <Project>{d0476e9d-25ea-4ced-8955-01b1906c7258}</Project>
       <Name>WeYa.Tools</Name>
     </ProjectReference>

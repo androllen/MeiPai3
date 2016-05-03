@@ -5,13 +5,17 @@
     xmlns:local="using:DemoFrame.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" RequestedTheme="{Binding Source={StaticResource GlobalInfoManager},Path=mAppTheme}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Text="设置"
-                   FontSize="30"
-                   Foreground="Black"/>
+    <Grid Background="{ThemeResource BackgroundBrush}">
+        <ToggleSwitch Margin="8"
+                          HorizontalAlignment="Stretch"
+                          Header="夜间模式"
+                          IsEnabled="True"
+                          IsOn="{Binding Source={StaticResource GlobalInfoManager},
+                                         Path=mIsNightMode,
+                                         Mode=TwoWay}"
+                          OffContent="关"
+                          OnContent="开" />
     </Grid>
 </Page>

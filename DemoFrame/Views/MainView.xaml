@@ -9,7 +9,7 @@
     xmlns:model="using:WeYa.Domain"
     xmlns:trigger="using:MeiPai3.Trigger"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" RequestedTheme="{Binding Source={StaticResource GlobalInfoManager},Path=mAppTheme}">
 
     <Page.Resources>
         <DataTemplate x:Key="NavLinkItemTemplate" x:DataType="model:NavLink">
@@ -21,20 +21,7 @@
     </Page.Resources>
 
     <!---->
-    <Grid x:Name="myPanel" SizeChanged="headerRoot_SizeChanged">
-        <Frame x:Name="newFrame" Visibility="Collapsed" DataContext="{x:Null}"
-               cm:Message.Attach="[Event Loading] = [SetupPhoneNavigationService($source)]">
-            <Frame.ContentTransitions>
-                <TransitionCollection>
-                    <NavigationThemeTransition>
-                        <NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                            <EntranceNavigationTransitionInfo />
-                        </NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                    </NavigationThemeTransition>
-                </TransitionCollection>
-            </Frame.ContentTransitions>            
-            <TextBlock Text="111" Foreground="Green" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Frame>
+    <Grid x:Name="myPanel" SizeChanged="headerRoot_SizeChanged" Background="{ThemeResource BackgroundBrush}">
         <SplitView x:Name="splitView"  PaneBackground="#FF2B2B2B"
                            IsPaneOpen="False"
                            OpenPaneLength="140"

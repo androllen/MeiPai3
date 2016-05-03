@@ -1,9 +1,16 @@
 ﻿using Caliburn.Micro;
 using DemoFrame.ViewModels;
+using DemoFrame.Views;
 using WeYa.Core;
+using WeYa.Domain;
 using WeYa.Tools;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
+using Windows.UI;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace DemoFrame
 {
@@ -35,11 +42,55 @@ namespace DemoFrame
 
             Settings.getInstance.setValues<string>(Settings.KEY_FOLDER, "hello world! key-values");
             string data = Settings.getInstance.getValues<string>(Settings.KEY_FOLDER, string.Empty);
+
+            var globalInfoManager = Resources["GlobalInfoManager"];
+            _container.RegisterInstance(typeof(GlobalInfoManager), null, globalInfoManager);
+
         }
 
+        /// <summary>
+        /// 加载主题
+        /// </summary>
+        /// <param name="e"></param>
+        private void LoadThemeResource(ElementTheme e)
+        {
+            var mainBrush = (Resources.ThemeDictionaries[e.ToString()] as ResourceDictionary)["BackgroundBrush"] as SolidColorBrush;
+            if (DeviceInfoHelper.IsType(DeviceFamily.Desktop))
+            {
+                var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+                titleBar.BackgroundColor = titleBar.ButtonBackgroundColor = mainBrush.Color;
+                titleBar.ButtonForegroundColor = titleBar.ForegroundColor = Colors.White;
+            }
+            else
+            {
+                var mainFrame = IoC.Get<INotifyFrameChanged>().MainFrame;
+                if (mainFrame != null)
+                    mainFrame.Background = mainBrush;
+            }
+        }
+        /// <summary>
+        /// 当主题改变的时候调用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GlobalInfoManager_notifyElementThemeEvent(object sender, Windows.UI.Xaml.ElementTheme e)
+        {
+            LoadThemeResource(e);
+        }
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            DisplayRootViewFor<MainViewModel>();
+            if (Window.Current.Content == null)
+            {
+                DisplayRootViewFor<MainViewModel>();
+
+                var globalInfoManager = IoC.Get<GlobalInfoManager>();
+                LoadThemeResource(globalInfoManager.mAppTheme);
+                globalInfoManager.notifyElementThemeEvent += GlobalInfoManager_notifyElementThemeEvent;
+
+            }
+            else
+                Window.Current.Activate();
+
 
             //var view = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
             //if (view != null)
