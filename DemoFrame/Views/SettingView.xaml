@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" RequestedTheme="{Binding Source={StaticResource GlobalInfoManager},Path=mAppTheme}">
 
-    <Grid Background="{ThemeResource BackgroundBrush}">
+    <Grid Background="{ThemeResource app_background}">
         <ToggleSwitch Margin="8"
                           HorizontalAlignment="Stretch"
                           Header="夜间模式"

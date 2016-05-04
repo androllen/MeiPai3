@@ -54,7 +54,7 @@ namespace DemoFrame
         /// <param name="e"></param>
         private void LoadThemeResource(ElementTheme e)
         {
-            var mainBrush = (Resources.ThemeDictionaries[e.ToString()] as ResourceDictionary)["BackgroundBrush"] as SolidColorBrush;
+            var mainBrush = (Resources.ThemeDictionaries[e.ToString()] as ResourceDictionary)["app_background"] as SolidColorBrush;
             if (DeviceInfoHelper.IsType(DeviceFamily.Desktop))
             {
                 var titleBar = ApplicationView.GetForCurrentView().TitleBar;
@@ -82,6 +82,7 @@ namespace DemoFrame
             if (Window.Current.Content == null)
             {
                 DisplayRootViewFor<MainViewModel>();
+
 
                 var globalInfoManager = IoC.Get<GlobalInfoManager>();
                 LoadThemeResource(globalInfoManager.mAppTheme);

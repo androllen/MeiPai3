@@ -11,5 +11,6 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Ellipse Fill="Gold" Width="100" Height="100"/>
+        <TextBlock x:Uid="tbEyebrows" Foreground="Black" HorizontalAlignment="Center"/>
     </Grid>
 </Page>

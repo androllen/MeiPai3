@@ -8,7 +8,7 @@
     xmlns:cm="using:Caliburn.Micro"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource BackgroundBrush}" 
+    <Grid Background="{ThemeResource app_background}" 
           SizeChanged="Grid_SizeChanged">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

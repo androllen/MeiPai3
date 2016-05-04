@@ -14,27 +14,27 @@
     <Page.Resources>
         <DataTemplate x:Key="NavLinkItemTemplate" x:DataType="model:NavLink">
             <StackPanel Orientation="Horizontal"  Margin="2,0,0,0">
-                <SymbolIcon Symbol="{x:Bind Symbol}"/>
-                <TextBlock Text="{x:Bind Label}" Margin="24,0,0,0" VerticalAlignment="Center"/>
+                <SymbolIcon Symbol="{x:Bind Symbol}"  Foreground="{StaticResource bg_light_text}"/>
+                <TextBlock Text="{x:Bind Label}" Margin="24,0,0,0" VerticalAlignment="Center" Foreground="{StaticResource bg_light_text}"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
     <!---->
-    <Grid x:Name="myPanel" SizeChanged="headerRoot_SizeChanged" Background="{ThemeResource BackgroundBrush}">
-        <SplitView x:Name="splitView"  PaneBackground="#FF2B2B2B"
+    <Grid x:Name="myPanel" SizeChanged="headerRoot_SizeChanged" Background="{ThemeResource app_background}">
+        <SplitView x:Name="splitView"  PaneBackground="{ThemeResource app_background}"
                            IsPaneOpen="False"
                            OpenPaneLength="140"
                            CompactPaneLength="48"
                            DisplayMode="CompactInline">
             <SplitView.Pane>
-                <Grid Width="140">
+                <Grid Width="140" Background="{StaticResource app_background}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <RelativePanel Width="140">
-                        <Rectangle x:Name="RectPanel" Width="140" Height="48" Fill="BlanchedAlmond"
+                        <Rectangle x:Name="RectPanel" Width="140" Height="48" Fill="{ThemeResource app_background}"
                                         RelativePanel.AlignLeftWithPanel="True" 
                                         RelativePanel.AlignTopWithPanel="True"/>
                         <ListView x:Name="NavLinksList" Width="140"
@@ -46,7 +46,7 @@
                                 cm:Message.Attach="[ItemClick] = [ListViewItemClick($eventArgs)]"
                                 RelativePanel.Below="RectPanel"/>
                         <Button x:Name="splitViewToggle" Style="{StaticResource SplitViewTogglePaneButtonStyle}" 
-                                        Background="BlanchedAlmond" Click="splitViewToggle_Click" 
+                                        Background="{ThemeResource app_background}" Click="splitViewToggle_Click" 
                                         RelativePanel.AlignLeftWithPanel="True" 
                                         RelativePanel.AlignTopWithPanel="True"/>
                     </RelativePanel>

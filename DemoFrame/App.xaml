@@ -15,25 +15,37 @@
 
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Dark">
-                    <SolidColorBrush x:Key="ControlPageBackgroundBrush" Color="Black" />
-                    <SolidColorBrush x:Key="ChromeHighBrush" Color="#FF1F1F1F" />
-                    <SolidColorBrush x:Key="BackgroundBrush" Color="#FF000000" />
-                    <SolidColorBrush x:Key="PageHeaderBackgroundBrush" Color="#44FFFFFF" />
+                    <SolidColorBrush x:Key="app_background" Color="#ff2b2839" />
+                    <SolidColorBrush x:Key="album_bg_color" Color="#ff0e0e10" />
+                    <SolidColorBrush x:Key="album_bottom_bg" Color="#ff222026" />
+                    <SolidColorBrush x:Key="album_divider" Color="#1effffff" />
+                    <SolidColorBrush x:Key="album_list_view_divider" Color="#ff2b2b2b" />
+                    <SolidColorBrush x:Key="bg_abs_popup_menu_item_pressed" Color="#ffe6e6e6" />
+                    <SolidColorBrush x:Key="bg_activity_chat" Color="#ff2b2938" />
+                    <SolidColorBrush x:Key="bg_dialog_tv_pressed" Color="#ffa0a0a0" />
+                    <SolidColorBrush x:Key="bg_divider" Color="#ffb9b9b9" />
+                    <SolidColorBrush x:Key="bg_host_user_normal" Color="#ff17171b" />
+                    <SolidColorBrush x:Key="bg_host_user_press" Color="#ff43404d" />
+                    <SolidColorBrush x:Key="bg_dark_text" Color="#FF85848E"/>
+                    <SolidColorBrush x:Key="bg_light_text" Color="#FFB2B1B7"/>
                 </ResourceDictionary>
 
                 <ResourceDictionary x:Key="Light">
-                    <SolidColorBrush x:Key="ControlPageBackgroundBrush" Color="White" />
-                    <SolidColorBrush x:Key="ChromeHighBrush" Color="#FFF9F9F9" />
-                    <SolidColorBrush x:Key="BackgroundBrush" Color="#FFFFFFFF" />
-                    <SolidColorBrush x:Key="PageHeaderBackgroundBrush" Color="#44000000" />
+                    <SolidColorBrush x:Key="app_background" Color="#ff2b2839" />
+                    <SolidColorBrush x:Key="album_bg_color" Color="#ff0e0e10" />
+                    <SolidColorBrush x:Key="album_bottom_bg" Color="#ff222026" />
+                    <SolidColorBrush x:Key="album_divider" Color="#1effffff" />
+                    <SolidColorBrush x:Key="album_list_view_divider" Color="#ff2b2b2b" />
+                    <SolidColorBrush x:Key="bg_abs_popup_menu_item_pressed" Color="#ffe6e6e6" />
+                    <SolidColorBrush x:Key="bg_activity_chat" Color="#ff2b2938" />
+                    <SolidColorBrush x:Key="bg_dialog_tv_pressed" Color="#ffa0a0a0" />
+                    <SolidColorBrush x:Key="bg_divider" Color="#ffb9b9b9" />
+                    <SolidColorBrush x:Key="bg_host_user_normal" Color="#ff17171b" />
+                    <SolidColorBrush x:Key="bg_host_user_press" Color="#ff43404d" />
+                    <SolidColorBrush x:Key="bg_dark_text" Color="#FF85848E"/>
+                    <SolidColorBrush x:Key="bg_light_text" Color="#FFB2B1B7"/>                    
                 </ResourceDictionary>
 
-                <ResourceDictionary x:Key="HighContrast">
-                    <SolidColorBrush x:Key="ControlPageBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
-                    <SolidColorBrush x:Key="ChromeHighBrush" Color="{ThemeResource SystemColorWindowColor}" />
-                    <SolidColorBrush x:Key="BackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
-                    <SolidColorBrush x:Key="PageHeaderBackgroundBrush" Color="{ThemeResource SystemColorWindowColor}" />
-                </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Application.Resources>

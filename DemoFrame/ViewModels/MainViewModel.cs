@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls;
 using WeYa.Core;
 using WeYa.Domain;
+using WeYa.Tools;
 
 namespace DemoFrame.ViewModels
 {
@@ -15,11 +16,10 @@ namespace DemoFrame.ViewModels
     {
         private ObservableCollection<NavLink> _navLinks = new ObservableCollection<NavLink>()
         {
-            new NavLink() { Label = "首页", Symbol = Symbol.People},
-            new NavLink() { Label = "收藏", Symbol = Symbol.Globe},
-            new NavLink() { Label = "下载", Symbol = Symbol.Message},
-            new NavLink() { Label = "关于", Symbol = Symbol.Delete },
-            new NavLink() { Label = "设置", Symbol = Symbol.Mail }
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Home"), Symbol = Symbol.Home},
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Follow"), Symbol = Symbol.People},
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Find"), Symbol = Symbol.Target},
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Me"), Symbol = Symbol.Contact }
         };
         public ObservableCollection<NavLink> NavLinks
         {
@@ -35,7 +35,7 @@ namespace DemoFrame.ViewModels
                 if (_index != value)
                 {
                     _index = value;
-                    NotifyOfPropertyChange(nameof(SelectedIndex));
+                    NotifyOfPropertyChange(()=> SelectedIndex);
                 }
             }
         }
@@ -51,6 +51,9 @@ namespace DemoFrame.ViewModels
         public MainViewModel(WinRTContainer container, INotifyFrameChanged frame) 
             : base(frame)
         {
+   
+
+
             _container = container;
             SelectedIndex = 0;
         }

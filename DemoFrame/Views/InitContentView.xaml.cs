@@ -25,6 +25,11 @@ namespace DemoFrame.Views
         public InitContentView()
         {
             this.InitializeComponent();
+
+            //ResourceLoader loader = ResourceLoader.GetForCurrentView();
+            //var text = loader.GetString("StatusBar_Success");
+            //var toast = new CCUWPToolkit.Controls.WYToastDialog();
+            //toast.ShowAsync(text);
         }
     }
 }
