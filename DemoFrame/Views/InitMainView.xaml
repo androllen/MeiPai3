@@ -29,6 +29,7 @@
             </StackPanel>
         </Border>
 
+
         <!--<ListView ItemsSource="{Binding InfiniteItems}"
                   Grid.Row="1">
             <ListView.ItemTemplate>
