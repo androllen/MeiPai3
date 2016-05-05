@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -34,43 +35,47 @@ namespace DemoFrame.Views
             //var toast = new CCUWPToolkit.Controls.WYToastDialog();
             //toast.ShowAsync(text);
         }
-        private void ShowItem(SampleDataModel model)
+
+        private void Fade(UIElement element)
         {
-            var MyDialog = new ContentDialog();
-
-            if (model != null)
+            var animation = new DoubleAnimation
             {
-                var MyImage = new Image();
-                MyImage.Source = new BitmapImage(new Uri(model.ImagePath));
-                MyImage.HorizontalAlignment = HorizontalAlignment.Stretch;
-                MyImage.VerticalAlignment = VerticalAlignment.Stretch;
-                MyImage.Stretch = Windows.UI.Xaml.Media.Stretch.UniformToFill;
-                MyDialog.Title = String.Format("You have selected {0}", model.ToString());
-                MyDialog.Content = MyImage;
-            }
-            else
+                From = 0,
+                To = 1,
+                Duration = new Duration(TimeSpan.FromSeconds(.5)),
+                EasingFunction = new CircleEase()
+            };
+
+            Storyboard.SetTarget(animation, element);
+            Storyboard.SetTargetProperty(animation, "Opacity");
+
+            var storyboard = new Storyboard();
+            storyboard.Children.Add(animation);
+            storyboard.Begin();
+        }
+        private void myPivot_PivotItemLoaded(Pivot sender, PivotItemEventArgs args)
+        {
+            if (args.Item != null)
             {
-                MyDialog.Title = "No item found";
-
+                VisControl(args.Item);
             }
-
-            MyDialog.PrimaryButtonText = "OK";
-
-            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => MyDialog.ShowAsync());
-
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void VisControl(PivotItem pi)
         {
-            SampleDataModel SelectedItem = null;
-
-            if (e.AddedItems.Count >= 1)
+            foreach (var item in myPivot.Items)
             {
-                SelectedItem = e.AddedItems[0] as SampleDataModel;
-                (sender as ListView).SelectedItem = null;
-                ShowItem(SelectedItem);
+                var pivotItem = item as PivotItem;
+                if (pi != pivotItem)
+                {
+                    (pivotItem.Content as UIElement).Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    (pivotItem.Content as UIElement).Visibility = Visibility.Visible;
+                    Fade(pivotItem);
+                }
             }
-
         }
     }
 }

@@ -135,17 +135,59 @@
   <data name="AppBarBtnView.Label" xml:space="preserve">
     <value>选择头像</value>
   </data>
-  <data name="App_Find" xml:space="preserve">
-    <value>发现</value>
+  <data name="header_channel_ACG" xml:space="preserve">
+    <value>二次元</value>
   </data>
-  <data name="App_Follow" xml:space="preserve">
-    <value>我的关注</value>
+  <data name="header_channel_Baby.Header" xml:space="preserve">
+    <value>宝宝</value>
   </data>
-  <data name="App_Home" xml:space="preserve">
-    <value>美拍</value>
+  <data name="header_channel_Beauty.Header" xml:space="preserve">
+    <value>女神</value>
   </data>
-  <data name="App_Me" xml:space="preserve">
-    <value>我</value>
+  <data name="header_channel_Beauty_twhk.Header" xml:space="preserve">
+    <value>正妹</value>
+  </data>
+  <data name="header_channel_Celebrity.Header" xml:space="preserve">
+    <value>明星</value>
+  </data>
+  <data name="header_channel_Celebrity_twhk.Header" xml:space="preserve">
+    <value>明星名人</value>
+  </data>
+  <data name="header_channel_Creative.Header" xml:space="preserve">
+    <value>涨姿势</value>
+  </data>
+  <data name="header_channel_Dance.Header" xml:space="preserve">
+    <value>舞蹈</value>
+  </data>
+  <data name="header_channel_Fashion.Header" xml:space="preserve">
+    <value>美妆时尚</value>
+  </data>
+  <data name="header_channel_Funny.Header" xml:space="preserve">
+    <value>搞笑</value>
+  </data>
+  <data name="header_channel_Gourmet.Header" xml:space="preserve">
+    <value>美食</value>
+  </data>
+  <data name="header_channel_hot.Header" xml:space="preserve">
+    <value>热门</value>
+  </data>
+  <data name="header_channel_Hot_Guys.Header" xml:space="preserve">
+    <value>男神</value>
+  </data>
+  <data name="header_channel_live.Header" xml:space="preserve">
+    <value>直播</value>
+  </data>
+  <data name="header_channel_LOL.Header" xml:space="preserve">
+    <value>逗比</value>
+  </data>
+  <data name="header_channel_Music.Header" xml:space="preserve">
+    <value>音乐</value>
+  </data>
+  <data name="header_channel_Pet.Header" xml:space="preserve">
+    <value>宠物</value>
+  </data>
+  <data name="header_channel_Travel.Header" xml:space="preserve">
+    <value>旅行</value>
   </data>
   <data name="MainPage_AppBarMenuBestApp" xml:space="preserve">
     <value>精品应用</value>
@@ -153,11 +195,32 @@
   <data name="MainPage_Love" xml:space="preserve">
     <value>爱</value>
   </data>
+  <data name="main_repeat_exit" xml:space="preserve">
+    <value>再按一次退出程序</value>
+  </data>
+  <data name="main_tab_find" xml:space="preserve">
+    <value>发现</value>
+  </data>
+  <data name="main_tab_main" xml:space="preserve">
+    <value>美拍</value>
+  </data>
+  <data name="main_tab_myfollow" xml:space="preserve">
+    <value>我的关注</value>
+  </data>
+  <data name="main_tab_user" xml:space="preserve">
+    <value>我</value>
+  </data>
+  <data name="more_en_blank" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="nearby" xml:space="preserve">
+    <value>附近</value>
+  </data>
+  <data name="nickname" xml:space="preserve">
+    <value>昵称</value>
+  </data>
   <data name="StatusBar_Success" xml:space="preserve">
     <value>加载完成</value>
-  </data>
-  <data name="StatusBar_Waiting" xml:space="preserve">
-    <value>请稍等...</value>
   </data>
   <data name="tbEyebrows.Text" xml:space="preserve">
     <value>眉毛</value>

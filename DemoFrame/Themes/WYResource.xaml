@@ -32,8 +32,8 @@
     <SolidColorBrush x:Key="CCTextButtonSelectColor" Color="Black"/>
     <SolidColorBrush x:Key="CCTextButtonColor" Color="White"/>
     <SolidColorBrush x:Key="CCTitleColor" Color="#ffeb11a6"/>
-    <SolidColorBrush x:Key="CCHightLightColor" Color="#f948f3"/>
-    
+    <SolidColorBrush x:Key="MP3MediumHighBrush" Color="#FFB2B1B7"/>
+    <SolidColorBrush x:Key="MP3HighlightBrush" Color="#FFFF3A7E"/>
     
     <!--<BitmapImage x:Key="MLMore_SetUri" UriSource="/Assets/Images/Common/More_Set.png" />-->
 
