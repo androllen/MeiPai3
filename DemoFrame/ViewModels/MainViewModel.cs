@@ -16,10 +16,10 @@ namespace DemoFrame.ViewModels
     {
         private ObservableCollection<NavLink> _navLinks = new ObservableCollection<NavLink>()
         {
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Home"), Symbol = Symbol.Home},
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Follow"), Symbol = Symbol.People},
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Find"), Symbol = Symbol.Target},
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("App_Me"), Symbol = Symbol.Contact }
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_main"), Symbol = Symbol.Home},
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_myfollow"), Symbol = Symbol.People},
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_find"), Symbol = Symbol.Target},
+            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_user"), Symbol = Symbol.Contact }
         };
         public ObservableCollection<NavLink> NavLinks
         {
@@ -51,9 +51,6 @@ namespace DemoFrame.ViewModels
         public MainViewModel(WinRTContainer container, INotifyFrameChanged frame) 
             : base(frame)
         {
-   
-
-
             _container = container;
             SelectedIndex = 0;
         }

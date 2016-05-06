@@ -6,71 +6,6 @@
         <ResourceDictionary Source="WYResource.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!-- Default style for Windows.UI.Xaml.Controls.Pivot -->
-    <Style TargetType="Pivot">
-        <Setter Property="Margin" Value="0"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="ItemsPanel">
-            <Setter.Value>
-                <ItemsPanelTemplate>
-                    <Grid/>
-                </ItemsPanelTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Pivot">
-                    <Grid x:Name="RootElement" 
-                          Background="{TemplateBinding Background}" 
-                          HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
-                          VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="Orientation">
-                                <VisualState x:Name="Portrait">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="TitleContentControl">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="12,0,12,0"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Landscape">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="TitleContentControl">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="12,0,12,0"/>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                        <ContentControl x:Name="TitleContentControl" 
-                                        ContentTemplate="{TemplateBinding TitleTemplate}" 
-                                        Content="{TemplateBinding Title}" 
-                                        Style="{StaticResource PivotTitleContentControlStyle}"/>
-                        <ScrollViewer x:Name="ScrollViewer" HorizontalSnapPointsAlignment="Center" HorizontalSnapPointsType="MandatorySingle" HorizontalScrollBarVisibility="Hidden" Margin="{TemplateBinding Padding}" Grid.Row="1" Template="{StaticResource ScrollViewerScrollBarlessTemplate}" VerticalSnapPointsType="None" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled" VerticalContentAlignment="Stretch" ZoomMode="Disabled">
-                            <PivotPanel x:Name="Panel" VerticalAlignment="Stretch">
-                                <PivotHeaderPanel x:Name="Header">
-                                    <PivotHeaderPanel.RenderTransform>
-                                        <CompositeTransform x:Name="HeaderTranslateTransform"/>
-                                    </PivotHeaderPanel.RenderTransform>
-                                </PivotHeaderPanel>
-                                <ItemsPresenter x:Name="PivotItemPresenter">
-                                    <ItemsPresenter.RenderTransform>
-                                        <TranslateTransform x:Name="ItemsPresenterTranslateTransform"/>
-                                    </ItemsPresenter.RenderTransform>
-                                </ItemsPresenter>
-                            </PivotPanel>
-                        </ScrollViewer>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
     <!-- Default style for Windows.UI.Xaml.Controls.Primitives.PivotHeaderItem -->
     <Style TargetType="PivotHeaderItem">
         <Setter Property="FontSize" Value="20" />
@@ -105,8 +40,7 @@
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ContentPresenterTranslateTransform" Storyboard.TargetProperty="X"
                                              Duration="0" To="{ThemeResource PivotHeaderItemLockedTranslation}" />
-                                        <DoubleAnimation Storyboard.TargetName="ContentPresenter"
-                                            Storyboard.TargetProperty="(UIElement.Opacity)"
+                                        <DoubleAnimation Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="(UIElement.Opacity)"
                                             Duration="0" To="0" />
                                     </Storyboard>
                                 </VisualState>
@@ -134,7 +68,7 @@
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightTransparentBrush}" />
                                         </ObjectAnimationUsingKeyFrames>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BottomTabPresenter" Storyboard.TargetProperty="Visibility" >
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible" />
                                         </ObjectAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
@@ -197,13 +131,13 @@
                             </ContentPresenter.RenderTransform>
                         </ContentPresenter>
                         <Rectangle x:Name="BottomTabPresenter" Fill="{StaticResource MP3HighlightBrush}" 
-                                   Height="2" VerticalAlignment="Bottom" Visibility="Collapsed"/>
+                                   Height="2" VerticalAlignment="Bottom" Visibility="Collapsed">
+                        </Rectangle>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
     <!-- Default style for SplitViewTogglePane Button Style -->
     <Style x:Key="SplitViewTogglePaneButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
