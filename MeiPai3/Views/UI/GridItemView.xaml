@@ -1,0 +1,52 @@
+﻿<UserControl
+    x:Class="MeiPai3.Views.GridItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MeiPai3.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:ctl="using:CCUWPToolkit.Controls"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <ctl:WYImage Stretch="Uniform" ColorsSource="Gray" LoadNew="False" ImageUrl="{Binding Image}"/>
+        <!--<Grid Width="228" Height="228"  Margin="0,0,8,8">
+            <Grid.Background>
+                <SolidColorBrush Color="{StaticResource PhoneForegroundColor}" Opacity="0.2"/>
+            </Grid.Background>
+            <Image Width="228" Height="228" CacheMode="BitmapCache" Stretch="Fill" cm:ImageNodify.Source="{Binding recommend_cover_pic}"/>
+            <Grid VerticalAlignment="Bottom"  Height="60">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/Image/album_item_bg.png"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="50">
+                    <cf4:Tile Width="40" Height="40" Margin="10,10,0,0">
+                        <cf4:Tile.Background>
+                            <ImageBrush ImageSource="/Assets/Image/Common/icon_avatar_small.png" Stretch="UniformToFill" />
+                        </cf4:Tile.Background>
+                        <cf4:Tile.Clip>
+                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,40,40"/>
+                        </cf4:Tile.Clip>
+                        <Image Source="{Binding media.user.avatar}" Stretch="Fill" Height="40" Width="40">
+                            <Image.Clip>
+                                <RectangleGeometry RadiusX="40" RadiusY="40" Rect="0,0,40,40"/>
+                            </Image.Clip>
+                        </Image>
+                    </cf4:Tile>
+                    <Image Source="/Assets/Image/icon_cell_sina_mini.png" 
+                                               Visibility="{Binding media.user.verified, Converter={StaticResource BoolToVisConverterKey}}" 
+                                               Stretch="None" Height="25" Width="25" Canvas.Left="30"/>
+                </Canvas>
+
+                <TextBlock FontSize="22" Text="{Binding recommend_caption}" Foreground="White" LineHeight="1" cf4:CCSlideEffect.LineIndex="1"
+                                                                           TextAlignment="Left" Margin="10,0,5,0" TextWrapping="Wrap"  TextTrimming="WordEllipsis" Grid.Column="1"/>
+            </Grid>
+        </Grid>-->
+    </Grid>
+</UserControl>

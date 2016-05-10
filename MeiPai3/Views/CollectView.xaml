@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="MeiPai3.Views.CollectView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MeiPai3.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cpt="using:CCUWPToolkit.Controls"
+    xmlns:cm="using:Caliburn.Micro"    
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel  HorizontalAlignment="Center"
+                   VerticalAlignment="Center" >
+            <Rectangle x:Name="demoblock" Fill="Beige" Width="30" Height="50"/>
+            <cpt:WYBtnColors RelativePanel.Below="demoblock"    
+                             cm:Message.Attach="[Click] = [ShowClickItem]"
+                             ColorsSource="Yellow" Label="点我" />
+        </RelativePanel>
+    </Grid>
+</Page>

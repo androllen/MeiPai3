@@ -1,0 +1,52 @@
+﻿<BA:WeYaApp
+    x:Class="MeiPai3.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MeiPai3"
+    xmlns:BA="using:WeYa.Core"
+    RequestedTheme="Light">
+
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/WYStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="app_background" Color="#ff211F2A" />
+                    <SolidColorBrush x:Key="album_bg_color" Color="#ff0e0e10" />
+                    <SolidColorBrush x:Key="album_bottom_bg" Color="#ff222026" />
+                    <SolidColorBrush x:Key="album_divider" Color="#1effffff" />
+                    <SolidColorBrush x:Key="album_list_view_divider" Color="#ff2b2b2b" />
+                    <SolidColorBrush x:Key="bg_abs_popup_menu_item_pressed" Color="#ffe6e6e6" />
+                    <SolidColorBrush x:Key="bg_activity_chat" Color="#ff2b2938" />
+                    <SolidColorBrush x:Key="bg_dialog_tv_pressed" Color="#ffa0a0a0" />
+                    <SolidColorBrush x:Key="bg_divider" Color="#ffb9b9b9" />
+                    <SolidColorBrush x:Key="bg_host_user_normal" Color="#ff17171b" />
+                    <SolidColorBrush x:Key="bg_host_user_press" Color="#ff43404d" />
+                    <SolidColorBrush x:Key="bg_dark_text" Color="#FF85848E"/>
+                    <SolidColorBrush x:Key="bg_light_text" Color="#FFB2B1B7"/>
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="app_background" Color="#ff2b2839" />
+                    <SolidColorBrush x:Key="album_bg_color" Color="#ff0e0e10" />
+                    <SolidColorBrush x:Key="album_bottom_bg" Color="#ff222026" />
+                    <SolidColorBrush x:Key="album_divider" Color="#1effffff" />
+                    <SolidColorBrush x:Key="album_list_view_divider" Color="#ff2b2b2b" />
+                    <SolidColorBrush x:Key="bg_abs_popup_menu_item_pressed" Color="#ffe6e6e6" />
+                    <SolidColorBrush x:Key="bg_activity_chat" Color="#ff2b2938" />
+                    <SolidColorBrush x:Key="bg_dialog_tv_pressed" Color="#ffa0a0a0" />
+                    <SolidColorBrush x:Key="bg_divider" Color="#ffb9b9b9" />
+                    <SolidColorBrush x:Key="bg_host_user_normal" Color="#ff17171b" />
+                    <SolidColorBrush x:Key="bg_host_user_press" Color="#ff43404d" />
+                    <SolidColorBrush x:Key="bg_dark_text" Color="#FF85848E"/>
+                    <SolidColorBrush x:Key="bg_light_text" Color="#FFB2B1B7"/>                    
+                </ResourceDictionary>
+
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</BA:WeYaApp>
