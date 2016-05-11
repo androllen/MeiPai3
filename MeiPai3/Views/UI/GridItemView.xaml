@@ -10,43 +10,39 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
+    <!--/Assets/Image/icon_cell_sina_mini.png-->
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
         <ctl:WYImage Stretch="Uniform" ColorsSource="Gray" LoadNew="False" ImageUrl="{Binding Image}"/>
-        <!--<Grid Width="228" Height="228"  Margin="0,0,8,8">
-            <Grid.Background>
-                <SolidColorBrush Color="{StaticResource PhoneForegroundColor}" Opacity="0.2"/>
-            </Grid.Background>
-            <Image Width="228" Height="228" CacheMode="BitmapCache" Stretch="Fill" cm:ImageNodify.Source="{Binding recommend_cover_pic}"/>
-            <Grid VerticalAlignment="Bottom"  Height="60">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/Assets/Image/album_item_bg.png"/>
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Canvas HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="50">
-                    <cf4:Tile Width="40" Height="40" Margin="10,10,0,0">
-                        <cf4:Tile.Background>
-                            <ImageBrush ImageSource="/Assets/Image/Common/icon_avatar_small.png" Stretch="UniformToFill" />
-                        </cf4:Tile.Background>
-                        <cf4:Tile.Clip>
-                            <RectangleGeometry RadiusX="0" RadiusY="0" Rect="0,0,40,40"/>
-                        </cf4:Tile.Clip>
-                        <Image Source="{Binding media.user.avatar}" Stretch="Fill" Height="40" Width="40">
-                            <Image.Clip>
-                                <RectangleGeometry RadiusX="40" RadiusY="40" Rect="0,0,40,40"/>
-                            </Image.Clip>
-                        </Image>
-                    </cf4:Tile>
-                    <Image Source="/Assets/Image/icon_cell_sina_mini.png" 
-                                               Visibility="{Binding media.user.verified, Converter={StaticResource BoolToVisConverterKey}}" 
-                                               Stretch="None" Height="25" Width="25" Canvas.Left="30"/>
-                </Canvas>
-
-                <TextBlock FontSize="22" Text="{Binding recommend_caption}" Foreground="White" LineHeight="1" cf4:CCSlideEffect.LineIndex="1"
-                                                                           TextAlignment="Left" Margin="10,0,5,0" TextWrapping="Wrap"  TextTrimming="WordEllipsis" Grid.Column="1"/>
-            </Grid>
-        </Grid>-->
+        <!--<ctl:WYBtnImage Label="手机号码"  Grid.Row="1" 
+                            ImageUri="http://group.store.qq.com/qun/V108nu362ue0TN/V3tzaAREgNPMVcojMU6/800" 
+                            StretchSource="Uniform" Height="60" 
+                            ColorsSource="Transparent" FontSize="13" OrientationSource="Horizontal"                            
+                            GeneratedImageHorizontalStretch="Left"
+                            GeneratedContentVerticalStretch="Bottom" 
+                            GeneratedContentHorizontalStretch="Center"
+                            IsEnableComponentStretch="True" 
+                            Foreground="{StaticResource MP3NormalTextBrush}"
+                            EllipseHeight="40" EllipseWidth="40"/>-->
+        <ctl:WYBtnColors x:Name="ShowInputToastDialog" 
+                MarginSource="70,0,0,0"
+                Height="60"
+                StretchSource="Uniform"
+                GeneratedImageHorizontalStretch="Left"
+                GeneratedContentVerticalStretch="Bottom"
+                GeneratedContentHorizontalStretch="Left"
+                Label="请输入手机号码" Grid.Row="1" 
+                IsEnableComponentStretch="True"
+                IconSource="/Assets/BadgeLogo.scale-400.png" />
+        <TextBlock FontSize="22"  Grid.Row="2" 
+                   Text="{Binding recommend_caption}"
+                   Foreground="White" LineHeight="1" 
+                   TextAlignment="Left"
+                   TextWrapping="Wrap"  TextTrimming="WordEllipsis"/>
+      
     </Grid>
 </UserControl>
