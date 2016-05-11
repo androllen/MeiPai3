@@ -1,0 +1,2 @@
+MainPackage=E:\Program Files (x86)\Visual Studio 2012\Projects\Git\Create\MeiPai3\MeiPai3\bin\x64\Debug\MeiPai3_1.0.1.0_x64_Debug.appx
+SymbolPackage=E:\Program Files (x86)\Visual Studio 2012\Projects\Git\Create\MeiPai3\MeiPai3\AppPackages\MeiPai3_1.0.1.0_Debug_Test\MeiPai3_1.0.1.0_x64_Debug.appxsym

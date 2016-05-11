@@ -39,7 +39,6 @@
                 IsEnableComponentStretch="True"
                 IconSource="/Assets/BadgeLogo.scale-400.png" />
         <TextBlock FontSize="22"  Grid.Row="2" 
-                   Text="{Binding recommend_caption}"
                    Foreground="White" LineHeight="1" 
                    TextAlignment="Left"
                    TextWrapping="Wrap"  TextTrimming="WordEllipsis"/>

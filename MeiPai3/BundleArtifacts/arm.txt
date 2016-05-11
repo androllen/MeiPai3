@@ -1,0 +1,4 @@
+MainPackage=E:\Program Files (x86)\Visual Studio 2012\Projects\Git\Create\MeiPai3\MeiPai3\bin\ARM\Debug\MeiPai3_1.0.1.0_ARM_Debug.appx
+SymbolPackage=E:\Program Files (x86)\Visual Studio 2012\Projects\Git\Create\MeiPai3\MeiPai3\AppPackages\MeiPai3_1.0.1.0_Debug_Test\MeiPai3_1.0.1.0_ARM_Debug.appxsym
+ResourcePack=E:\Program Files (x86)\Visual Studio 2012\Projects\Git\Create\MeiPai3\MeiPai3\bin\ARM\Debug\MeiPai3_1.0.1.0_language-zh-hans.appx
+ResourcePack=E:\Program Files (x86)\Visual Studio 2012\Projects\Git\Create\MeiPai3\MeiPai3\bin\ARM\Debug\MeiPai3_1.0.1.0_scale-400.appx
