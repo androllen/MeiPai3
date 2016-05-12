@@ -168,13 +168,13 @@
   <data name="header_channel_Gourmet.Header" xml:space="preserve">
     <value>美食</value>
   </data>
-  <data name="header_channel_hot.Header" xml:space="preserve">
+  <data name="header_channel_Hot.Header" xml:space="preserve">
     <value>热门</value>
   </data>
   <data name="header_channel_Hot_Guys.Header" xml:space="preserve">
     <value>男神</value>
   </data>
-  <data name="header_channel_live.Header" xml:space="preserve">
+  <data name="header_channel_Live.Header" xml:space="preserve">
     <value>直播</value>
   </data>
   <data name="header_channel_LOL.Header" xml:space="preserve">

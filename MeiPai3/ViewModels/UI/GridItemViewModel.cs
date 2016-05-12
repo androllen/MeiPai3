@@ -30,8 +30,9 @@ namespace MeiPai3.ViewModels
             get;
             private set;
         }
-        public GridItemViewModel(string image)
+        public GridItemViewModel(string name,string image)
         {
+            Name = name;
             Image = image;
         }
     }

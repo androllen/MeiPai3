@@ -19,62 +19,119 @@
                               ColorsSource="{StaticResource CCTitleColor}"/>
 
         <Pivot x:Name="myPivot" Grid.Row="1"
+               SelectionChanged="myPivot_SelectionChanged"
                PivotItemLoaded="myPivot_PivotItemLoaded">
-            <PivotItem x:Uid="header_channel_live" SizeChanged="Grid_SizeChanged" Background="Gainsboro">
-                <GridView x:Name="myGridView" SelectionMode="None" IsSwipeEnabled="False" IsItemClickEnabled="True"
-                        cm:Message.Attach="[Event ItemClick] = [GridItemViewSelected($clickedItem)]">
-                    <GridView.Header>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="sb" Foreground="Black" FontSize="40" TextAlignment="Center" Grid.Row="2"/>
-                            <TextBlock Text="sb" Foreground="Black" FontSize="40" TextAlignment="Center"  Grid.Row="3"/>
-                        </Grid>
-                    </GridView.Header>
-                </GridView>
+            <PivotItem x:Uid="header_channel_Live" 
+                       SizeChanged="LiveGrid_SizeChanged">
+                <GridView x:Name="channelLiveView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelLiveSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_hot">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Hot" 
+                       SizeChanged="HotGrid_SizeChanged">
+                <GridView x:Name="channelHotView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelHotSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Gourmet">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Gourmet" 
+                       SizeChanged="GourmetGrid_SizeChanged">
+                <GridView x:Name="channelGourmetView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelGourmetSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Funny">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Funny" 
+                       SizeChanged="FunnyGrid_SizeChanged">
+                <GridView x:Name="channelFunnyView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelFunnySelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Fashion">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Fashion" 
+                       SizeChanged="FashionGrid_SizeChanged">
+                <GridView x:Name="channelFashionView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelFashionSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Music">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Music" 
+                       SizeChanged="MusicGrid_SizeChanged">
+                <GridView x:Name="channelMusicView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelMusicSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Dance">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Dance" 
+                       SizeChanged="DanceGrid_SizeChanged">
+                <GridView x:Name="channelDanceView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelDanceSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Baby">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Baby" 
+                       SizeChanged="BabyGrid_SizeChanged">
+                <GridView x:Name="channelBabyView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelBabySelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Celebrity">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Celebrity" 
+                       SizeChanged="CelebrityGrid_SizeChanged">
+                <GridView x:Name="channelCelebrityView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelCelebritySelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Beauty">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Beauty" 
+                       SizeChanged="BeautyGrid_SizeChanged">
+                <GridView x:Name="channelBeautyView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelBeautySelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Travel">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Travel" 
+                       SizeChanged="TravelGrid_SizeChanged">
+                <GridView x:Name="channelTravelView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelTravelSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Creative">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Creative" 
+                       SizeChanged="CreativeGrid_SizeChanged">
+                <GridView x:Name="channelCreativeView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelCreativeSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Pet">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Pet" 
+                       SizeChanged="PetGrid_SizeChanged">
+                <GridView x:Name="channelPetView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelPetSelected($clickedItem)]"/>
             </PivotItem>
-            <PivotItem x:Uid="header_channel_Hot_Guys">
-                <TextBlock Text="Content content content" />
+            <PivotItem x:Uid="header_channel_Hot_Guys" 
+                       SizeChanged="HotGuysGrid_SizeChanged">
+                <GridView x:Name="channelHot_GuysView"
+                    SelectionMode="None"
+                    IsSwipeEnabled="False"
+                    IsItemClickEnabled="True"
+                    cm:Message.Attach="[Event ItemClick] = [channelHot_GuysSelected($clickedItem)]"/>
             </PivotItem>
         </Pivot>        
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeiPai3", "MeiPai3\MeiPai3.csproj", "{DD52E07F-FF1A-409E-A478-F90F769A0A9A}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeYa.Domain", "..\DemoFrame\WeYa.Domain\WeYa.Domain.csproj", "{B855D265-F94F-4766-9FDD-086D2C768037}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeYa.Tools", "..\DemoFrame\WeYa.Tools\WeYa.Tools.csproj", "{D0476E9D-25EA-4CED-8955-01B1906C7258}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeYa.Utils", "..\DemoControl\WeYa.Utils\WeYa.Utils.csproj", "{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +109,22 @@ Global
 		{D0476E9D-25EA-4CED-8955-01B1906C7258}.Release|x64.Build.0 = Release|x64
 		{D0476E9D-25EA-4CED-8955-01B1906C7258}.Release|x86.ActiveCfg = Release|x86
 		{D0476E9D-25EA-4CED-8955-01B1906C7258}.Release|x86.Build.0 = Release|x86
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|ARM.Build.0 = Debug|ARM
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|x64.ActiveCfg = Debug|x64
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|x64.Build.0 = Debug|x64
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|x86.ActiveCfg = Debug|x86
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Debug|x86.Build.0 = Debug|x86
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|ARM.ActiveCfg = Release|ARM
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|ARM.Build.0 = Release|ARM
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|x64.ActiveCfg = Release|x64
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|x64.Build.0 = Release|x64
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|x86.ActiveCfg = Release|x86
+		{910C1718-1800-4BF8-BDCC-05E8C97DDF2F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

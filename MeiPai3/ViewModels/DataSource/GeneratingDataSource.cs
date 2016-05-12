@@ -37,7 +37,7 @@ namespace MeiPai3.ViewModels
 
                 for (int i = (int)startIndex; i < count+ startIndex; i++)
                 {
-                    items.Add(new GridItemViewModel("https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png"));
+                    items.Add(new GridItemViewModel(i.ToString(),"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png"));
                 }
 
                 return items;
