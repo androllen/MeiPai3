@@ -119,7 +119,7 @@ namespace MeiPai3.ViewModels
             await dialog.ShowAsync();
         }
 
-        public async void channelHot_GuysSelected(GridItemViewModel character)
+        public async void channelGuysSelected(GridItemViewModel character)
         {
             var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
 
@@ -140,7 +140,7 @@ namespace MeiPai3.ViewModels
         public BindableCollection<GridItemViewModel> channelTravelView { get; set; }
         public BindableCollection<GridItemViewModel> channelCreativeView { get; set; }
         public BindableCollection<GridItemViewModel> channelPetView { get; set; }
-        public BindableCollection<GridItemViewModel> channelHot_GuysView { get; set; }
+        public BindableCollection<GridItemViewModel> channelGuysView { get; set; }
 
         public InitMainViewModel(INotifyFrameChanged frame) 
             : base(frame)
@@ -158,7 +158,7 @@ namespace MeiPai3.ViewModels
             channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
             channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
             channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelHot_GuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
         }
 
         /// <summary>

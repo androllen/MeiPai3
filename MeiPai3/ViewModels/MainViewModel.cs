@@ -59,7 +59,7 @@ namespace MeiPai3.ViewModels
             var categoryInfo = (NavLink)args.ClickedItem;
             switch (categoryInfo.Label)
             {
-                case "首页":
+                case "美拍":
                     {
                         _frame.ClearPivotItemView(mainService => 
                         {
@@ -67,7 +67,7 @@ namespace MeiPai3.ViewModels
                         }, 0);
                     }
                     break;
-                case "收藏":
+                case "我的关注":
                     {
                         _frame.ClearPivotItemView(mainService =>
                         {
@@ -75,7 +75,7 @@ namespace MeiPai3.ViewModels
                         }, 1);
                     }
                     break;
-                case "下载":
+                case "发现":
                     {
                         _frame.ClearPivotItemView(mainService =>
                         {
@@ -83,7 +83,7 @@ namespace MeiPai3.ViewModels
                         }, 2);
                     }
                     break;
-                case "关于":
+                case "我":
                     {
                         _frame.ClearPivotItemView(mainService =>
                         {
