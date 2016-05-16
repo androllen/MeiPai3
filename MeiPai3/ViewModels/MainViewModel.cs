@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls;
 using WeYa.Core;
 using WeYa.Domain;
-using WeYa.Tools;
+using WeYa.Utils;
 
 namespace MeiPai3.ViewModels
 {
@@ -16,10 +16,10 @@ namespace MeiPai3.ViewModels
     {
         private ObservableCollection<NavLink> _navLinks = new ObservableCollection<NavLink>()
         {
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_main"), Symbol = Symbol.Home},
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_myfollow"), Symbol = Symbol.People},
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_find"), Symbol = Symbol.Target},
-            new NavLink() { Label = TextInfoHelper.Instance.GetString("main_tab_user"), Symbol = Symbol.Contact }
+            new NavLink() { Label = StringUtil.Instance.GetString("main_tab_main"), Symbol = Symbol.Home},
+            new NavLink() { Label = StringUtil.Instance.GetString("main_tab_myfollow"), Symbol = Symbol.People},
+            new NavLink() { Label = StringUtil.Instance.GetString("main_tab_find"), Symbol = Symbol.Target},
+            new NavLink() { Label = StringUtil.Instance.GetString("main_tab_user"), Symbol = Symbol.Contact }
         };
         public ObservableCollection<NavLink> NavLinks
         {

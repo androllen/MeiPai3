@@ -3,7 +3,7 @@ using MeiPai3.ViewModels;
 using MeiPai3.Views;
 using WeYa.Core;
 using WeYa.Domain;
-using WeYa.Tools;
+using WeYa.Utils;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.UI;
@@ -45,8 +45,8 @@ namespace MeiPai3
 
             _container.RegisterSingleton(typeof(INotifyFrameChanged), string.Empty, typeof(PhoneFrameMgr));
 
-            Settings.getInstance.setValues<string>(Settings.KEY_FOLDER, "hello world! key-values");
-            string data = Settings.getInstance.getValues<string>(Settings.KEY_FOLDER, string.Empty);
+            SettingUtil.getInstance.setValues<string>(SettingUtil.KEY_FOLDER, "hello world! key-values");
+            string data = SettingUtil.getInstance.getValues<string>(SettingUtil.KEY_FOLDER, string.Empty);
 
             var globalInfoManager = Resources["GlobalInfoManager"];
             _container.RegisterInstance(typeof(GlobalInfoManager), null, globalInfoManager);
@@ -60,7 +60,7 @@ namespace MeiPai3
         private void LoadThemeResource(ElementTheme e)
         {
             var mainBrush = (Resources.ThemeDictionaries[e.ToString()] as ResourceDictionary)["album_bottom_bg"] as SolidColorBrush;
-            if (DeviceInfoHelper.IsType(DeviceFamily.Desktop))
+            if (DeviceUtil.IsType(DeviceFamily.Desktop))
             {
                 var titleBar = ApplicationView.GetForCurrentView().TitleBar;
                 titleBar.BackgroundColor = titleBar.ButtonBackgroundColor = mainBrush.Color;

@@ -13,6 +13,7 @@ using WeYa.Domain.Models;
 using Windows.UI.Popups;
 using System;
 using Windows.UI.Xaml.Controls;
+using CCUWPToolkit.Controls;
 
 namespace MeiPai3.ViewModels
 {
@@ -179,6 +180,7 @@ namespace MeiPai3.ViewModels
                 pvt = null;
             }
         }
+
         protected override void OnActivate()
         {
             base.OnActivate();
@@ -193,6 +195,16 @@ namespace MeiPai3.ViewModels
             base.OnViewLoaded(view);
 
         }
-  
+        public void WYHeaderTitleBar_LeftClick()
+        {
+            var toast = new WYToastDialog();
+            toast.ShowAsync("WYHeaderTitleBar_LeftClick");
+        }
+
+        public void WYHeaderTitleBar_RightClick()
+        {
+            var toast = new WYToastDialog();
+            toast.ShowAsync("WYHeaderTitleBar_RightClick");
+        }
     }
 }

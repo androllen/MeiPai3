@@ -36,7 +36,6 @@
                 GeneratedContentVerticalStretch="Bottom"
                 GeneratedContentHorizontalStretch="Left"
                 Label="请输入手机号码" Grid.Row="1" 
-                IsEnableComponentStretch="True"
                 IconSource="/Assets/BadgeLogo.scale-400.png" />
         <TextBlock FontSize="22"  Grid.Row="2" 
                    Foreground="White" LineHeight="1" 

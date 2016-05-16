@@ -9,14 +9,49 @@
     xmlns:ctl="using:CCUWPToolkit.Controls"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style x:Key="leftbtn" TargetType="ctl:WYBtnImage">
+            <!--<Setter Property="Label" Value="请输"/>-->
+            <Setter Property="OrientationSource" Value="Horizontal"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="StretchSource" Value="Fill"/>
+            <Setter Property="ColorsSource" Value="{StaticResource CCTitleColor}"/>
+            <Setter Property="GeneratedContentHorizontalStretch" Value="Center"/>
+            <Setter Property="GeneratedContentVerticalStretch" Value="Center"/>
+            <Setter Property="IconSource" Value="/Assets/StoreLogo.png"/>
+        </Style>
+        <Style x:Key="rightbtn" TargetType="ctl:WYBtnImage">
+            <!--<Setter Property="Label" Value="请输"/>-->
+            <Setter Property="OrientationSource" Value="Horizontal"/>
+            <Setter Property="StretchSource" Value="Fill"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="IconSource" Value="/Assets/StoreLogo.png"/>
+        </Style>
+    </Page.Resources>
+
+
     <Grid Background="{ThemeResource app_background}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ctl:WYHeaderTitleBar Height="48" Background="{StaticResource MP3bottom_bg_Menu}" Title="ddd"
-                              ColorsSource="{StaticResource CCTitleColor}"/>
+        <ctl:WYHeaderTitleBar x:Name="ShowHeaderTitleBar"
+                Height="50" 
+                FontSize="22"
+                Foreground="Green"
+                Title="美拍"
+                BtnLeftStyle="{StaticResource leftbtn}"
+                BtnRightStyle="{StaticResource rightbtn}"
+                Background="{StaticResource MP3bottom_bg_Menu}" 
+                cm:Message.Attach="[Event LeftClick] = [Action WYHeaderTitleBar_LeftClick]; [Event RightClick] = [Action WYHeaderTitleBar_RightClick]"/>
+
 
         <Pivot x:Name="myPivot" Grid.Row="1"
                SelectionChanged="myPivot_SelectionChanged"
