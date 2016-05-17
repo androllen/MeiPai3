@@ -113,6 +113,7 @@
     <Compile Include="ViewModels\CollectViewModel.cs" />
     <Compile Include="ViewModels\ContentViewModel.cs" />
     <Compile Include="ViewModels\DataSource\GeneratingDataSource.cs" />
+    <Compile Include="ViewModels\DataSource\HotViewDataSource.cs" />
     <Compile Include="ViewModels\DownloadViewModel.cs" />
     <Compile Include="ViewModels\UI\GridItemViewModel.cs" />
     <Compile Include="ViewModels\InitContentViewModel.cs" />

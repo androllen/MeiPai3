@@ -13,11 +13,12 @@ using System.Threading.Tasks;
 using WeYa.Domain.Models;
 using WeYa.Tools.Utils;
 
-namespace MeiPai3.ViewModels
+namespace MeiPai3.ViewModels.DataSource
 {
     public class GeneratingDataSource : IVirtualisedDataSource<GridItemViewModel>
     {
         private readonly int _count;
+        private int _pagecount;
 
         public GeneratingDataSource(int count = 1000000)
         {
@@ -28,7 +29,10 @@ namespace MeiPai3.ViewModels
         {
             return Task.FromResult(_count);
         }
-
+        public Task<int> GetPageStartIndexAsync()
+        {
+            return Task.FromResult(_pagecount++);
+        }
         public Task<BindableCollection<GridItemViewModel>> GetItemsAsync(uint startIndex, uint count)
         {
             return Task.Run(() =>

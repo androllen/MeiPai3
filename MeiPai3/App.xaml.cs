@@ -93,6 +93,13 @@ namespace MeiPai3
                 LoadThemeResource(globalInfoManager.mAppTheme);
                 globalInfoManager.notifyElementThemeEvent += GlobalInfoManager_notifyElementThemeEvent;
 
+                /**
+                 * 在设置页面 开关
+                 * globalInfoManager.mIsCacheMode = (1 != 2) ? WeYa.Utils.EnumType.CacheType.Close : WeYa.Utils.EnumType.CacheType.Open;
+                 * get 在网络请求的地方调用 传参
+                 * 
+                 * **/
+
             }
             else
                 Window.Current.Activate();
