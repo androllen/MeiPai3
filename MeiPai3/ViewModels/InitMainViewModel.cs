@@ -14,6 +14,8 @@ using Windows.UI.Popups;
 using System;
 using Windows.UI.Xaml.Controls;
 using CCUWPToolkit.Controls;
+using WeYa.Domain;
+using WeYa.Domain.Util;
 
 namespace MeiPai3.ViewModels
 {
@@ -146,20 +148,21 @@ namespace MeiPai3.ViewModels
         public InitMainViewModel(INotifyFrameChanged frame) 
             : base(frame)
         {
-            channelLiveView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelFashionView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelMusicView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelDanceView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelBabyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelCelebrityView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelBeautyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            var source = new HotViewDataSource();
+            channelLiveView = new IncrementalLoadingCollection<GridItemViewModel>(source);
+            //channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelFashionView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelMusicView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelDanceView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelBabyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelCelebrityView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelBeautyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
+            //channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
         }
 
         /// <summary>

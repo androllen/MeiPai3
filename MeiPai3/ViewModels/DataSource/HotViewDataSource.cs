@@ -9,10 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeYa.Core;
 using WeYa.Domain;
 using WeYa.Domain.Models;
-using WeYa.Domain.Service;
-using WeYa.Tools.Utils;
+using WeYa.Domain.Util;
 
 namespace MeiPai3.ViewModels.DataSource
 {
@@ -21,11 +21,13 @@ namespace MeiPai3.ViewModels.DataSource
         private readonly int _count;
         private int _pagecount;
         private readonly BindableCollection<GridItemViewModel> items = null;
-
+        private MainService _service;
         public HotViewDataSource(int count = 1000000)
         {
             _count = count;
             items = new BindableCollection<GridItemViewModel>();
+
+            _service = new MainService(new MainDeserializer());
         }
 
         public Task<int> GetCountAsync()
@@ -40,9 +42,9 @@ namespace MeiPai3.ViewModels.DataSource
         {
             //启用缓存
             //网络请求
-            MainService service = new MainService();
             var item = new BindableCollection<GridItemViewModel>();
-            BindableCollection<UserInfo> hots = await service.getUserInfo(await GetPageStartIndexAsync());
+
+            BindableCollection<UserInfo> hots = await _service.GetCategory(_pagecount);
             foreach (var view in hots)
             {
                 var vm = new GridItemViewModel(view.Avatar, view.Name);
