@@ -5,7 +5,6 @@
 *********************************************************************************/
 using WeYa.Core;
 using WeYa.Domain.Models;
-using WeYa.Tools.Utils;
 using Windows.ApplicationModel;
 using Caliburn.Micro;
 using Windows.UI.Popups;
@@ -18,9 +17,5 @@ namespace MeiPai3.ViewModels
         public ChannelLiveViewModel()
         {
         }
-
-
-
-
     }
 }

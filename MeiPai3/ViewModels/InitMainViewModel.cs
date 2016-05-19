@@ -5,7 +5,6 @@
 *********************************************************************************/
 using System.Threading.Tasks;
 using Caliburn.Micro;
-using WeYa.Tools.Utils;
 using System.Collections.ObjectModel;
 using WeYa.Core;
 using MeiPai3.ViewModels.DataSource;
@@ -148,8 +147,7 @@ namespace MeiPai3.ViewModels
         public InitMainViewModel(INotifyFrameChanged frame) 
             : base(frame)
         {
-            var source = new HotViewDataSource();
-            channelLiveView = new IncrementalLoadingCollection<GridItemViewModel>(source);
+            channelLiveView = new IncrementalLoadingCollection<GridItemViewModel>(new HotViewDataSource());
             //channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
             //channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
             //channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());

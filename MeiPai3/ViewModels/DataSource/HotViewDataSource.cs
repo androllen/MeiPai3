@@ -19,7 +19,7 @@ namespace MeiPai3.ViewModels.DataSource
     public class HotViewDataSource : IVirtualisedDataSource<GridItemViewModel>
     {
         private readonly int _count;
-        private int _pagecount;
+        private int _page;
         private readonly BindableCollection<GridItemViewModel> items = null;
         private MainService _service;
         public HotViewDataSource(int count = 1000000)
@@ -36,25 +36,20 @@ namespace MeiPai3.ViewModels.DataSource
         }
         public Task<int> GetPageStartIndexAsync()
         {
-            return Task.FromResult(_pagecount++);
+            return Task.FromResult(_page++);
         }
         public async Task<BindableCollection<GridItemViewModel>> GetItemsAsync(uint startIndex, uint count)
         {
-            //启用缓存
-            //网络请求
-            var item = new BindableCollection<GridItemViewModel>();
-
-            BindableCollection<UserInfo> hots = await _service.GetCategory(_pagecount);
-            foreach (var view in hots)
+            await _service.HotGet<Hot>(new ServiceArgument() { feature="new",page=_page}, Item=> 
             {
-                var vm = new GridItemViewModel(view.Avatar, view.Name);
-                item.Add(vm);
-            }
+                int total = ((int)count == 1 ? 20 : (int)count);
+                for (int i = (int)startIndex; i < total; i++)
+                {
+                    var vm = new GridItemViewModel(Item[i].recommend_caption, Item[i].recommend_cover_pic);
+                    items.Add(vm);
+                }
+            });
 
-            foreach(var hot in item)
-            {
-                items.Add(hot);
-            }
 
             return items;
         }

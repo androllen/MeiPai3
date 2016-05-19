@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeYa.Domain.Models;
-using WeYa.Tools.Utils;
+using WeYa.Domain.Util;
 
 namespace MeiPai3.ViewModels.DataSource
 {
