@@ -6,46 +6,62 @@
 using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeYa.Core;
+using WeYa.Domain;
 using WeYa.Domain.Models;
 using WeYa.Domain.Util;
+using WeYa.Utils;
 
 namespace MeiPai3.ViewModels.DataSource
 {
     public class GeneratingDataSource : IVirtualisedDataSource<GridItemViewModel>
     {
         private readonly int _count;
-        private int _pagecount;
-
-        public GeneratingDataSource(int count = 1000000)
+        private int _page;
+        private readonly BindableCollection<GridItemViewModel> items = null;
+        private readonly MainService _service;
+        private readonly TopicsType _topicsType;
+        public GeneratingDataSource(MainService service, TopicsType type)
         {
-            _count = count;
+            _count = 1000000;
+            items = new BindableCollection<GridItemViewModel>();
+            _topicsType = type;
+            _service = service;
         }
 
         public Task<int> GetCountAsync()
         {
             return Task.FromResult(_count);
         }
+
         public Task<int> GetPageStartIndexAsync()
         {
-            return Task.FromResult(_pagecount++);
+            return Task.FromResult(_page++);
         }
-        public Task<BindableCollection<GridItemViewModel>> GetItemsAsync(uint startIndex, uint count)
+        public async Task<BindableCollection<GridItemViewModel>> GetItemsAsync(uint startIndex, uint count)
         {
-            return Task.Run(() =>
-            {
-                var items = new BindableCollection<GridItemViewModel>();
+            int total = ((int)count == 1 ? 18 : (int)count);
 
-                for (int i = (int)startIndex; i < count+ startIndex; i++)
+            items.Clear();
+            await _service.HotGet<Hot>(new ServiceArgument() { id = (int)_topicsType, feature = "new", page = _page, count = total }, Item =>
+            {
+                var view = new BindableCollection<GridItemViewModel>();
+                for (int i = 0; i < Item.Count; i++)
                 {
-                    items.Add(new GridItemViewModel(i.ToString(),"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_fe6da1ec.png"));
+                    var vm = new GridItemViewModel(Item[i].recommend_caption, Item[i].recommend_cover_pic);
+                    view.Add(vm);
+                }
+                foreach (var hot in view)
+                {
+                    items.Add(hot);
                 }
 
-                return items;
             });
+
+            return items;
         }
 
     }

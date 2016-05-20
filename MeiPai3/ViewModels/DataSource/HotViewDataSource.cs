@@ -13,6 +13,7 @@ using WeYa.Core;
 using WeYa.Domain;
 using WeYa.Domain.Models;
 using WeYa.Domain.Util;
+using WeYa.Utils;
 
 namespace MeiPai3.ViewModels.DataSource
 {
@@ -21,37 +22,48 @@ namespace MeiPai3.ViewModels.DataSource
         private readonly int _count;
         private int _page;
         private readonly BindableCollection<GridItemViewModel> items = null;
-        private MainService _service;
-        public HotViewDataSource(int count = 1000000)
+        private readonly MainService _service;
+        private readonly TopicsType _topicsType;
+        public HotViewDataSource(MainService service, TopicsType type, int count = 1000000)
         {
             _count = count;
             items = new BindableCollection<GridItemViewModel>();
-
-            _service = new MainService(new MainDeserializer());
+            _topicsType = type;
+            _service = service;
         }
 
         public Task<int> GetCountAsync()
         {
             return Task.FromResult(_count);
         }
+
         public Task<int> GetPageStartIndexAsync()
         {
             return Task.FromResult(_page++);
         }
         public async Task<BindableCollection<GridItemViewModel>> GetItemsAsync(uint startIndex, uint count)
         {
-            await _service.HotGet<Hot>(new ServiceArgument() { feature="new",page=_page}, Item=> 
+            int total = ((int)count == 1 ? 18 : (int)count);
+
+            items.Clear();
+
+            await _service.HotGet<Hot>(new ServiceArgument() { id=(int)_topicsType, feature = "new", page = _page, count = total }, Item =>
             {
-                int total = ((int)count == 1 ? 20 : (int)count);
-                for (int i = (int)startIndex; i < total; i++)
+                var view =new BindableCollection<GridItemViewModel>();
+                for (int i = 0; i < total; i++)
                 {
                     var vm = new GridItemViewModel(Item[i].recommend_caption, Item[i].recommend_cover_pic);
-                    items.Add(vm);
+                    view.Add(vm);
                 }
-            });
+                foreach(var hot in view)
+                {
+                    items.Add(hot);
+                }
 
+            });
 
             return items;
         }
+
     }
 }

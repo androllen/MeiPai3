@@ -72,36 +72,5 @@ namespace MeiPai3.Views
             }
         }
         #endregion
-
-        private void myPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            switch (myPivot.SelectedIndex)
-            {
-                case 0:
-                    channelLiveView.UpdateLayout();
-                    break;
-                case 1:
-                    channelHotView.UpdateLayout();
-                    break;
-                case 2:
-                    channelGourmetView.UpdateLayout();
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    break;
-                case 9:
-                    break;
-            }
-        }
-
     }
 }

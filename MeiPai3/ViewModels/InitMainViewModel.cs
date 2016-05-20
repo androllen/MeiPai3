@@ -15,12 +15,12 @@ using Windows.UI.Xaml.Controls;
 using CCUWPToolkit.Controls;
 using WeYa.Domain;
 using WeYa.Domain.Util;
+using WeYa.Utils;
 
 namespace MeiPai3.ViewModels
 {
     public class InitMainViewModel : BaseViewModel
     {
-
         private string _title;
         public override string Title
         {
@@ -36,13 +36,6 @@ namespace MeiPai3.ViewModels
         }
 
         #region GridViewItemSelected
-        public async void channelLiveSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-
         public async void channelHotSelected(GridItemViewModel character)
         {
             var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
@@ -129,7 +122,6 @@ namespace MeiPai3.ViewModels
         }
         #endregion
 
-        public BindableCollection<GridItemViewModel> channelLiveView { get; set; }
         public BindableCollection<GridItemViewModel> channelHotView { get; set; }
         public BindableCollection<GridItemViewModel> channelGourmetView { get; set; }
         public BindableCollection<GridItemViewModel> channelFunnyView { get; set; }
@@ -143,26 +135,27 @@ namespace MeiPai3.ViewModels
         public BindableCollection<GridItemViewModel> channelCreativeView { get; set; }
         public BindableCollection<GridItemViewModel> channelPetView { get; set; }
         public BindableCollection<GridItemViewModel> channelGuysView { get; set; }
-
+        private readonly MainService _service;
         public InitMainViewModel(INotifyFrameChanged frame) 
             : base(frame)
         {
-            channelLiveView = new IncrementalLoadingCollection<GridItemViewModel>(new HotViewDataSource());
-            //channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelFashionView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelMusicView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelDanceView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelBabyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelCelebrityView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelBeautyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-            //channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource());
-        }
+            _service = new MainService(new MainDeserializer());
 
+            channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Hot));
+            channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Gourmet));
+            //channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Funny));
+            //channelFashionView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Fashion));
+            //channelMusicView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Music));
+            //channelDanceView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Dance));
+            //channelBabyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Baby));
+            //channelCelebrityView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Celebrity));
+            //channelBeautyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Beauty));
+            //channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Travel));
+            //channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Creative));
+            //channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Pet));
+            //channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Guys));
+        }
+ 
         /// <summary>
         /// cm:Message.Attach="[Loaded] = [PivotLoaded($source)]"
         /// </summary>

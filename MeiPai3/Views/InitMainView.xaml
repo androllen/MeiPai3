@@ -54,17 +54,7 @@
 
 
         <Pivot x:Name="myPivot" Grid.Row="1"
-               SelectionChanged="myPivot_SelectionChanged"
                PivotItemLoaded="myPivot_PivotItemLoaded">
-            <PivotItem x:Uid="header_channel_Live" >
-                <ctl:WYGridView x:Name="channelLiveView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                             
-                    cm:Message.Attach="[Event ItemClick] = [channelLiveSelected($clickedItem)]"/>
-            </PivotItem>
             <PivotItem x:Uid="header_channel_Hot" >
                 <ctl:WYGridView x:Name="channelHotView"
                     SelectionMode="None"
