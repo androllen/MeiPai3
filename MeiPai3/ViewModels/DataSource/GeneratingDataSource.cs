@@ -24,7 +24,7 @@ namespace MeiPai3.ViewModels.DataSource
         private readonly BindableCollection<GridItemViewModel> items = null;
         private readonly MainService _service;
         private readonly TopicsType _topicsType;
-        public GeneratingDataSource(MainService service, TopicsType type)
+        public GeneratingDataSource(MainService service, TopicsType type=TopicsType.Baby)
         {
             _count = 1000000;
             items = new BindableCollection<GridItemViewModel>();
@@ -46,7 +46,8 @@ namespace MeiPai3.ViewModels.DataSource
             int total = ((int)count == 1 ? 18 : (int)count);
 
             items.Clear();
-            await _service.HotGet<Hot>(new ServiceArgument() { id = (int)_topicsType, feature = "new", page = _page, count = total }, Item =>
+           
+            await _service.HotGet<Hot>(new ServiceArgument() { id = 1, feature = "new", page = _page}, Item =>
             {
                 var view = new BindableCollection<GridItemViewModel>();
                 for (int i = 0; i < Item.Count; i++)

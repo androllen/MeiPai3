@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using MeiPai3.ViewModels;
 using MeiPai3.Views;
+using System.Threading.Tasks;
 using WeYa.Core;
 using WeYa.Domain;
 using WeYa.Utils;
@@ -26,6 +27,7 @@ namespace MeiPai3
         public App()
         {
             this.InitializeComponent();
+            SquareCategoriesItems = new BindableCollection<SquareCategories>();
         }
         protected override void Configure()
         {
@@ -39,6 +41,7 @@ namespace MeiPai3
                 .PerRequest<ContentViewModel>()
                 .PerRequest<CollectViewModel>()
                 .PerRequest<ChannelLiveViewModel>()
+                .PerRequest<InitSquareViewModel>()
                 .PerRequest<ShellViewModel>();
 
 
@@ -51,6 +54,7 @@ namespace MeiPai3
             var globalInfoManager = Resources["GlobalInfoManager"];
             _container.RegisterInstance(typeof(GlobalInfoManager), null, globalInfoManager);
 
+            _container.RegisterInstance(typeof(INotifyFileCache), string.Empty, typeof(MainFileCache));
         }
 
         /// <summary>
@@ -73,6 +77,7 @@ namespace MeiPai3
                     mainFrame.Background = mainBrush;
             }
         }
+        public BindableCollection<SquareCategories> SquareCategoriesItems { get; set; }
         /// <summary>
         /// 当主题改变的时候调用
         /// </summary>
@@ -82,12 +87,25 @@ namespace MeiPai3
         {
             LoadThemeResource(e);
         }
+        private async Task getCommon()
+        {
+            MainService mainService = new MainService();
+            await mainService.OnCommon<SquareCategories>(new ServiceArgument(), callback =>
+            {
+                foreach (var item in callback)
+                {
+                    SquareCategoriesItems.Add(item);
+                }
+            });
+
+        }
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
             if (Window.Current.Content == null)
             {
-                DisplayRootViewFor<MainViewModel>();
+                //await getCommon();
 
+                DisplayRootViewFor<MainViewModel>();
 
                 var globalInfoManager = IoC.Get<GlobalInfoManager>();
                 LoadThemeResource(globalInfoManager.mAppTheme);
@@ -99,7 +117,6 @@ namespace MeiPai3
                  * get 在网络请求的地方调用 传参
                  * 
                  * **/
-
             }
             else
                 Window.Current.Activate();

@@ -71,7 +71,7 @@ namespace MeiPai3.ViewModels
                     {
                         _frame.ClearPivotItemView(mainService =>
                         {
-                            mainService.For<CollectViewModel>().WithParam(vm => vm.Title, categoryInfo.Label).Navigate();
+                            mainService.For<InitSquareViewModel>().WithParam(vm => vm.Title, categoryInfo.Label).Navigate();
                         }, 1);
                     }
                     break;

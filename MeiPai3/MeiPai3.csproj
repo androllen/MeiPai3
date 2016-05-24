@@ -115,6 +115,8 @@
     <Compile Include="ViewModels\DataSource\GeneratingDataSource.cs" />
     <Compile Include="ViewModels\DataSource\HotViewDataSource.cs" />
     <Compile Include="ViewModels\DownloadViewModel.cs" />
+    <Compile Include="ViewModels\InitSquareViewModel.cs" />
+    <Compile Include="ViewModels\SquareItemViewModel.cs" />
     <Compile Include="ViewModels\UI\GridItemViewModel.cs" />
     <Compile Include="ViewModels\InitContentViewModel.cs" />
     <Compile Include="ViewModels\InitMainViewModel.cs" />
@@ -136,6 +138,12 @@
     </Compile>
     <Compile Include="Views\DownloadView.xaml.cs">
       <DependentUpon>DownloadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InitSquareView.xaml.cs">
+      <DependentUpon>InitSquareView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UI\SquareItemView.xaml.cs">
+      <DependentUpon>SquareItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UI\GridItemView.xaml.cs">
       <DependentUpon>GridItemView.xaml</DependentUpon>
@@ -173,6 +181,11 @@
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Square71x71Logo.scale-200.png" />
+    <Content Include="Assets\Tiles\55779965254291780.jpg" />
+    <Content Include="Assets\Tiles\55b7509df142a6511.jpg" />
+    <Content Include="Assets\Tiles\561b58ff50f4d8030.jpg" />
+    <Content Include="Assets\Tiles\561b5917778e88231.jpg" />
+    <Content Include="Assets\Tiles\573ec1c5616ce8363.jpg" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -211,6 +224,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DownloadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InitSquareView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UI\SquareItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,9 +282,7 @@
       <Name>WeYa.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Tiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

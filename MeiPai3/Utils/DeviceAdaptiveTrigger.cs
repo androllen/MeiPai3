@@ -76,18 +76,5 @@ namespace MeiPai3.Trigger
                 SetActive(device == _adaptiveType);
             }
         }
-
-        //public static readonly DependencyProperty MinWindowWidthProperty = 
-        //    DependencyProperty.Register(
-        //    "MinWindowWidth", 
-        //    typeof(double), 
-        //    typeof(DeviceAdaptiveTrigger), 
-        //    new PropertyMetadata(0.0));
-
-        //public double MinWindowWidth
-        //{
-        //    get { return (double)GetValue(MinWindowWidthProperty); }
-        //    set { SetValue(MinWindowWidthProperty, value); }
-        //}
     }
 }

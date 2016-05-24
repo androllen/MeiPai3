@@ -52,17 +52,19 @@
                 Background="{StaticResource MP3bottom_bg_Menu}" 
                 cm:Message.Attach="[Event LeftClick] = [Action WYHeaderTitleBar_LeftClick]; [Event RightClick] = [Action WYHeaderTitleBar_RightClick]"/>
 
-
-        <Pivot x:Name="myPivot" Grid.Row="1"
-               PivotItemLoaded="myPivot_PivotItemLoaded">
-            <PivotItem x:Uid="header_channel_Hot" >
-                <ctl:WYGridView x:Name="channelHotView"
+        <ctl:WYGridView x:Name="channelHotView"
+                    Grid.Row="1"                        
                     SelectionMode="None"
                     IsSwipeEnabled="False"
                     IsItemClickEnabled="True"
                     MinItemWidth="200"
                     MinItemHeight="200"                             
                     cm:Message.Attach="[Event ItemClick] = [channelHotSelected($clickedItem)]"/>
+
+        <!--<Pivot x:Name="myPivot" Grid.Row="1"
+               PivotItemLoaded="myPivot_PivotItemLoaded">
+            <PivotItem x:Uid="header_channel_Hot" >
+
             </PivotItem>
             <PivotItem x:Uid="header_channel_Gourmet" >
                 <ctl:WYGridView x:Name="channelGourmetView"
@@ -172,7 +174,7 @@
                     MinItemHeight="200"
                     cm:Message.Attach="[Event ItemClick] = [channelGuysSelected($clickedItem)]"/>
             </PivotItem>
-        </Pivot>        
+        </Pivot>-->        
 
     </Grid>
 

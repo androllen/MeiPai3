@@ -50,27 +50,27 @@ namespace MeiPai3.Views
         }
         private void myPivot_PivotItemLoaded(Pivot sender, PivotItemEventArgs args)
         {
-            if (args.Item != null)
-            {
-                VisControl(args.Item);
-            }
+            //if (args.Item != null)
+            //{
+            //    VisControl(args.Item);
+            //}
         }
-        private void VisControl(PivotItem pi)
-        {
-            foreach (var item in myPivot.Items)
-            {
-                var pivotItem = item as PivotItem;
-                if (pi != pivotItem)
-                {
-                    (pivotItem.Content as UIElement).Visibility = Visibility.Collapsed;
-                }
-                else
-                {
-                    (pivotItem.Content as UIElement).Visibility = Visibility.Visible;
-                    Fade(pivotItem);
-                }
-            }
-        }
+        //private void VisControl(PivotItem pi)
+        //{
+        //    foreach (var item in myPivot.Items)
+        //    {
+        //        var pivotItem = item as PivotItem;
+        //        if (pi != pivotItem)
+        //        {
+        //            (pivotItem.Content as UIElement).Visibility = Visibility.Collapsed;
+        //        }
+        //        else
+        //        {
+        //            (pivotItem.Content as UIElement).Visibility = Visibility.Visible;
+        //            Fade(pivotItem);
+        //        }
+        //    }
+        //}
         #endregion
     }
 }

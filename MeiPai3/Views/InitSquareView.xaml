@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="MeiPai3.Views.InitSquareView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MeiPai3.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ctl="using:CCUWPToolkit.Controls"
+    xmlns:cm="using:Caliburn.Micro"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource app_background}">
+        <ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ctl:WYBtnImage x:Name="ShowHot" IconSource="{Binding HotImg}" 
+                        Grid.Column="0" Grid.Row="0" StretchSource="Uniform" Grid.ColumnSpan="3"/>
+                <ctl:WYBtnImage x:Name="ShowFunny"  IconSource="{Binding FunnyImg}" 
+                        Grid.Column="0" Grid.Row="2" StretchSource="Uniform"/>
+                <StackPanel Grid.Column="2" Grid.Row="2">
+                    <ctl:WYBtnImage x:Name="ShowCelebrity" IconSource="{Binding FashionImg}" StretchSource="Uniform"/>
+                    <Rectangle Height="8"/>
+                    <ctl:WYBtnImage x:Name="ShowBeauty" IconSource="{Binding BeautyImg}" StretchSource="Uniform"/>
+                </StackPanel>
+                <ctl:WYBtnImage x:Name="ShowDance" IconSource="{Binding DanceImg}" 
+                        Grid.Column="0" Grid.Row="4" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowMusic" IconSource="{Binding MusicImg}" 
+                        Grid.Column="2" Grid.Row="4" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowGourmet" IconSource="{Binding GourmetImg}" 
+                        Grid.Column="0" Grid.Row="6" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowFashion" IconSource="{Binding FashionImg}" 
+                        Grid.Column="2" Grid.Row="6" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowTravel" IconSource="{Binding TravelImg}" 
+                        Grid.Column="0" Grid.Row="8" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowGuys" IconSource="{Binding GuysImg}" 
+                        Grid.Column="2" Grid.Row="8" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowCreative" IconSource="{Binding CreativeImg}" 
+                        Grid.Column="0" Grid.Row="10" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowBaby" IconSource="{Binding BabyImg}" 
+                        Grid.Column="2" Grid.Row="10" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowPet" IconSource="{Binding PetImg}" 
+                        Grid.Column="0" Grid.Row="12" StretchSource="Uniform"/>
+                <ctl:WYBtnImage x:Name="ShowActivity" IconSource="{Binding ActivityImg}" 
+                        Grid.Column="2" Grid.Row="12" StretchSource="Uniform"/>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

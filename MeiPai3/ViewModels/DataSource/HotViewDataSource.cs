@@ -47,7 +47,7 @@ namespace MeiPai3.ViewModels.DataSource
 
             items.Clear();
 
-            await _service.HotGet<Hot>(new ServiceArgument() { id=(int)_topicsType, feature = "new", page = _page, count = total }, Item =>
+            await _service.HotGet<Hot>(new ServiceArgument() { id=(int)_topicsType, feature = "new", page = _page }, Item =>
             {
                 var view =new BindableCollection<GridItemViewModel>();
                 for (int i = 0; i < total; i++)

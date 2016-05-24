@@ -139,23 +139,23 @@ namespace MeiPai3.ViewModels
         public InitMainViewModel(INotifyFrameChanged frame) 
             : base(frame)
         {
-            _service = new MainService(new MainDeserializer());
-
-            channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Hot));
-            channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Gourmet));
-            //channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Funny));
-            //channelFashionView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Fashion));
-            //channelMusicView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Music));
-            //channelDanceView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Dance));
-            //channelBabyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Baby));
-            //channelCelebrityView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Celebrity));
-            //channelBeautyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Beauty));
-            //channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Travel));
-            //channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Creative));
-            //channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Pet));
-            //channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Guys));
+            _service = new MainService();
+            
+            channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service));
+            //channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service));
+            ////channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Funny));
+            ////channelFashionView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Fashion));
+            ////channelMusicView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Music));
+            ////channelDanceView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Dance));
+            ////channelBabyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Baby));
+            ////channelCelebrityView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Celebrity));
+            ////channelBeautyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Beauty));
+            ////channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Travel));
+            ////channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Creative));
+            ////channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Pet));
+            ////channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Guys));
         }
- 
+
         /// <summary>
         /// cm:Message.Attach="[Loaded] = [PivotLoaded($source)]"
         /// </summary>
@@ -184,10 +184,16 @@ namespace MeiPai3.ViewModels
             base.OnInitialize();
 
         }
+
         protected override void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
 
+        }
+
+        protected override void OnDeactivate(bool close)
+        {
+            base.OnDeactivate(close);
         }
         public void WYHeaderTitleBar_LeftClick()
         {
