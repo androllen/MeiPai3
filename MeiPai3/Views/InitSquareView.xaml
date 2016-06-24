@@ -7,10 +7,50 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ctl="using:CCUWPToolkit.Controls"
     xmlns:cm="using:Caliburn.Micro"
-    mc:Ignorable="d">
-
+    xmlns:vm="using:MeiPai3.ViewModels"
+    mc:Ignorable="d" RequestedTheme="{Binding Source={StaticResource GlobalInfoManager},Path=mAppTheme}">
+    
+    <Page.Resources>
+        <Style x:Key="leftbtn" TargetType="ctl:WYBtnImage">
+            <!--<Setter Property="Label" Value="请输"/>-->
+            <Setter Property="OrientationSource" Value="Horizontal"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="StretchSource" Value="Fill"/>
+            <Setter Property="ColorsSource" Value="{StaticResource CCTitleColor}"/>
+            <Setter Property="GeneratedContentHorizontalStretch" Value="Center"/>
+            <Setter Property="GeneratedContentVerticalStretch" Value="Center"/>
+            <Setter Property="IconSource" Value="/Assets/StoreLogo.png"/>
+        </Style>
+        <Style x:Key="rightbtn" TargetType="ctl:WYBtnImage">
+            <!--<Setter Property="Label" Value="请输"/>-->
+            <Setter Property="OrientationSource" Value="Horizontal"/>
+            <Setter Property="StretchSource" Value="Fill"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="IconSource" Value="/Assets/StoreLogo.png"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource app_background}">
-        <ScrollViewer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ctl:WYHeaderTitleBar x:Name="ShowHeaderTitleBar"
+                Height="50" 
+                FontSize="22"
+                Foreground="Green"
+                Title="{Binding Title}"
+                BtnLeftStyle="{StaticResource leftbtn}"
+                BtnRightStyle="{StaticResource rightbtn}"
+                Background="{StaticResource MP3bottom_bg_Menu}" 
+                cm:Message.Attach="[Event LeftClick] = [Action WYHeaderTitleBar_LeftClick]; [Event RightClick] = [Action WYHeaderTitleBar_RightClick]"/>
+        <ScrollViewer Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -39,7 +79,7 @@
                 <ctl:WYBtnImage x:Name="ShowFunny"  IconSource="{Binding FunnyImg}" 
                         Grid.Column="0" Grid.Row="2" StretchSource="Uniform"/>
                 <StackPanel Grid.Column="2" Grid.Row="2">
-                    <ctl:WYBtnImage x:Name="ShowCelebrity" IconSource="{Binding FashionImg}" StretchSource="Uniform"/>
+                    <ctl:WYBtnImage x:Name="ShowCelebrity" IconSource="{Binding CelebrityImg}" StretchSource="Uniform"/>
                     <Rectangle Height="8"/>
                     <ctl:WYBtnImage x:Name="ShowBeauty" IconSource="{Binding BeautyImg}" StretchSource="Uniform"/>
                 </StackPanel>

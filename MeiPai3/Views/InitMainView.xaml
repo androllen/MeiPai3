@@ -35,7 +35,7 @@
         </Style>
     </Page.Resources>
 
-
+    
     <Grid Background="{ThemeResource app_background}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -58,124 +58,7 @@
                     IsSwipeEnabled="False"
                     IsItemClickEnabled="True"
                     MinItemWidth="200"
-                    MinItemHeight="200"                             
+                    MinItemHeight="200"          
                     cm:Message.Attach="[Event ItemClick] = [channelHotSelected($clickedItem)]"/>
-
-        <!--<Pivot x:Name="myPivot" Grid.Row="1"
-               PivotItemLoaded="myPivot_PivotItemLoaded">
-            <PivotItem x:Uid="header_channel_Hot" >
-
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Gourmet" >
-                <ctl:WYGridView x:Name="channelGourmetView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                                     
-                    cm:Message.Attach="[Event ItemClick] = [channelGourmetSelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Funny" >
-                <ctl:WYGridView x:Name="channelFunnyView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                                     
-                    cm:Message.Attach="[Event ItemClick] = [channelFunnySelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Fashion" >
-                <ctl:WYGridView x:Name="channelFashionView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                                     
-                    cm:Message.Attach="[Event ItemClick] = [channelFashionSelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Music" >
-                <ctl:WYGridView x:Name="channelMusicView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    MinItemWidth="200"
-                    MinItemHeight="200"     
-                    IsItemClickEnabled="True"
-                    cm:Message.Attach="[Event ItemClick] = [channelMusicSelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Dance" >
-                <ctl:WYGridView x:Name="channelDanceView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                               
-                    cm:Message.Attach="[Event ItemClick] = [channelDanceSelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Baby" >
-                <ctl:WYGridView x:Name="channelBabyView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                               
-                    cm:Message.Attach="[Event ItemClick] = [channelBabySelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Celebrity" >
-                <ctl:WYGridView x:Name="channelCelebrityView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                                     
-                    cm:Message.Attach="[Event ItemClick] = [channelCelebritySelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Beauty" >
-                <ctl:WYGridView x:Name="channelBeautyView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                                     
-                    cm:Message.Attach="[Event ItemClick] = [channelBeautySelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Travel" >
-                <ctl:WYGridView x:Name="channelTravelView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                                     
-                    cm:Message.Attach="[Event ItemClick] = [channelTravelSelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Creative" >
-                <ctl:WYGridView x:Name="channelCreativeView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                          
-                    cm:Message.Attach="[Event ItemClick] = [channelCreativeSelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Pet" >
-                <ctl:WYGridView x:Name="channelPetView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True"
-                    MinItemWidth="200"
-                    MinItemHeight="200"                                
-                    cm:Message.Attach="[Event ItemClick] = [channelPetSelected($clickedItem)]"/>
-            </PivotItem>
-            <PivotItem x:Uid="header_channel_Hot_Guys" >
-                <ctl:WYGridView x:Name="channelGuysView"
-                    SelectionMode="None"
-                    IsSwipeEnabled="False"
-                    IsItemClickEnabled="True" 
-                    MinItemWidth="200"
-                    MinItemHeight="200"
-                    cm:Message.Attach="[Event ItemClick] = [channelGuysSelected($clickedItem)]"/>
-            </PivotItem>
-        </Pivot>-->        
-
     </Grid>
-
 </Page>

@@ -2,6 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:local="using:MeiPai3"
     xmlns:cpt="using:WeYa.Domain"
+    xmlns:tools="using:WeYa.Utils"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- 应该在此定义资源字典条目。-->
@@ -11,8 +12,8 @@
     <cpt:GlobalInfoManager x:Key="GlobalInfoManager"/>
     <!--<tools:Language x:Key="lang"/>-->
 
-    <!--<tools:BooleanToVisibilityConverter x:Key="BoolToVisConverterKey" />
-    <tools:Unix2DateTimeConverter x:Key="Unix2DateTimeConverterKey"/>
+    <tools:BooleanToVisibilityConverter x:Key="BoolToVisConverterKey" />
+    <!--<tools:Unix2DateTimeConverter x:Key="Unix2DateTimeConverterKey"/>
     <tools:Gender2StringConverter x:Key="Gender2StringConverterKey"/>
     <tools:ByteToStringConverter x:Key="ByteToStringConverterKey"/>-->
     <!--<BitmapImage x:Key="CCBaseInfo_ArrowUri" UriSource="/Assets/Images/Common/list_clickable.png" />-->

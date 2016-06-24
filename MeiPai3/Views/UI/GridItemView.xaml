@@ -12,35 +12,37 @@
 
     <!--/Assets/Image/icon_cell_sina_mini.png-->
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="30" />
-        </Grid.RowDefinitions>
-        <ctl:WYImage Stretch="Uniform" ColorsSource="Gray" LoadNew="False" ImageUrl="{Binding Image}"/>
-        <!--<ctl:WYBtnImage Label="手机号码"  Grid.Row="1" 
-                            ImageUri="http://group.store.qq.com/qun/V108nu362ue0TN/V3tzaAREgNPMVcojMU6/800" 
-                            StretchSource="Uniform" Height="60" 
-                            ColorsSource="Transparent" FontSize="13" OrientationSource="Horizontal"                            
-                            GeneratedImageHorizontalStretch="Left"
-                            GeneratedContentVerticalStretch="Bottom" 
-                            GeneratedContentHorizontalStretch="Center"
-                            IsEnableComponentStretch="True" 
-                            Foreground="{StaticResource MP3NormalTextBrush}"
-                            EllipseHeight="40" EllipseWidth="40"/>-->
-        <ctl:WYBtnColors x:Name="ShowInputToastDialog" 
-                MarginSource="70,0,0,0"
-                Height="60"
-                StretchSource="Uniform"
-                GeneratedImageHorizontalStretch="Left"
-                GeneratedContentVerticalStretch="Bottom"
-                GeneratedContentHorizontalStretch="Left"
-                Label="请输入手机号码" Grid.Row="1" 
-                IconSource="/Assets/BadgeLogo.scale-400.png" />
-        <TextBlock FontSize="22"  Grid.Row="2" 
-                   Foreground="White" LineHeight="1" 
-                   TextAlignment="Left"
-                   TextWrapping="Wrap"  TextTrimming="WordEllipsis"/>
-      
+        <ctl:WYImage Stretch="Uniform" ColorsSource="Gray" LoadNew="False"
+                            ImageUrl="{Binding RecommendCoverPic}"/>
+        <RelativePanel VerticalAlignment="Bottom" Height="90" >
+            <RelativePanel.Background>
+                <ImageBrush ImageSource="/Assets/Image/album_item_bg.png"/>
+            </RelativePanel.Background>
+            <ctl:WYBtnSharp x:Name="ShowInputToastDialog" Margin="10,0,0,20"
+                                    Label="{Binding Media.User.ScreenName}" OrientationSource="Horizontal"
+                                    GeneratedContentHorizontalStretch="Left"
+                                    GeneratedContentVerticalStretch="Bottom" 
+                                    GeneratedBaseHorizontalStretch="Left"
+                                    ImageUri="{Binding Media.User.Avatar}" 
+                                    StretchSource="Uniform"
+                                    Foreground="{StaticResource CCTextButtonColor}"
+                                    Height="60"
+                                    EllipseHeight="40" 
+                                    EllipseWidth="40"
+                                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                                    RelativePanel.AlignLeftWithPanel="True"/>
+            <Image Source="/Assets/Image/icon_cell_sina_mini.png" HorizontalAlignment="Left" 
+                                               Visibility="{Binding Media.User.Verified, Converter={StaticResource BoolToVisConverterKey}}" 
+                                               Stretch="None" Height="25" Width="25" Margin="30,0,0,0" 
+                           RelativePanel.AlignTopWith="ShowInputToastDialog"/>
+            <!--四道口附近螺丝扣得分两口水井坊雷克萨解放路口塞德里克 -->
+            <TextBlock Text="{Binding RecommendCaption}" FontSize="18"
+                               Margin="10,0,0,0"
+                               LineHeight="1"  Foreground="{StaticResource CCTextButtonColor}"
+                               TextAlignment="Left" 
+                               TextWrapping="NoWrap"
+                               TextTrimming="WordEllipsis"
+                               RelativePanel.AlignBottomWith="ShowInputToastDialog"/>
+        </RelativePanel>
     </Grid>
 </UserControl>

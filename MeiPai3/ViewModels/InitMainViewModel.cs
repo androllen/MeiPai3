@@ -35,127 +35,54 @@ namespace MeiPai3.ViewModels
             }
         }
 
-        #region GridViewItemSelected
-        public async void channelHotSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-        public async void channelGourmetSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-
-        public async void channelFunnySelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-        public async void channelFashionSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-
-        public async void channelMusicSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-        public async void channelDanceSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-
-        public async void channelBabySelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-        public async void channelCelebritySelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-
-        public async void channelBeautySelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-        public async void channelTravelSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-
-        public async void channelCreativeSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-        public async void channelPetSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-
-        public async void channelGuysSelected(GridItemViewModel character)
-        {
-            var dialog = new MessageDialog(String.Format("{0} selected.", character.Name), "Character Selected");
-
-            await dialog.ShowAsync();
-        }
-        #endregion
-
+        private int currentPage = 1;
         public BindableCollection<GridItemViewModel> channelHotView { get; set; }
-        public BindableCollection<GridItemViewModel> channelGourmetView { get; set; }
-        public BindableCollection<GridItemViewModel> channelFunnyView { get; set; }
-        public BindableCollection<GridItemViewModel> channelFashionView { get; set; }
-        public BindableCollection<GridItemViewModel> channelMusicView { get; set; }
-        public BindableCollection<GridItemViewModel> channelDanceView { get; set; }
-        public BindableCollection<GridItemViewModel> channelBabyView { get; set; }
-        public BindableCollection<GridItemViewModel> channelCelebrityView { get; set; }
-        public BindableCollection<GridItemViewModel> channelBeautyView { get; set; }
-        public BindableCollection<GridItemViewModel> channelTravelView { get; set; }
-        public BindableCollection<GridItemViewModel> channelCreativeView { get; set; }
-        public BindableCollection<GridItemViewModel> channelPetView { get; set; }
-        public BindableCollection<GridItemViewModel> channelGuysView { get; set; }
         private readonly MainService _service;
         public InitMainViewModel(INotifyFrameChanged frame) 
             : base(frame)
         {
             _service = new MainService();
-            
-            channelHotView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service));
-            //channelGourmetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service));
-            ////channelFunnyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Funny));
-            ////channelFashionView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Fashion));
-            ////channelMusicView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Music));
-            ////channelDanceView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Dance));
-            ////channelBabyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Baby));
-            ////channelCelebrityView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Celebrity));
-            ////channelBeautyView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Beauty));
-            ////channelTravelView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Travel));
-            ////channelCreativeView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Creative));
-            ////channelPetView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Pet));
-            ////channelGuysView = new IncrementalLoadingCollection<GridItemViewModel>(new GeneratingDataSource(_service, TopicsType.Guys));
+            channelHotView = new IncrementalLoadingCollection<GridItemViewModel>((cancellationToken, count) => Task.Run(GetMoreData, cancellationToken));
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private async Task<BindableCollection<GridItemViewModel>> GetMoreData()
+        {
+            return await FakeApiCallAsync(currentPage++);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pageNumber"></param>
+        /// <param name="itemsPerPage"></param>
+        /// <returns></returns>
+        private async Task<BindableCollection<GridItemViewModel>> FakeApiCallAsync(int pageNumber)
+        {
+            var items = new BindableCollection<GridItemViewModel>();
+            await _service.HotGet(new ServiceArgument() { id = 1, feature = "new", page = pageNumber, type = 1 }, Item =>
+            {
+                foreach (var hot in Item)
+                {
+                    var vm = new GridItemViewModel(hot.RecommendCaption, hot.RecommendCoverPic,hot.Media);
+                    items.Add(vm);
+                    WeYaLog.Instance.Info(this.ToString(),hot.RecommendCaption);
+                }
+            });
 
+            return items;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="character"></param>
+        public async void channelHotSelected(GridItemViewModel character)
+        {
+            var dialog = new MessageDialog(String.Format("{0} selected.", character.RecommendCaption), "Character Selected");
+
+            await dialog.ShowAsync();
+        }
         /// <summary>
         /// cm:Message.Attach="[Loaded] = [PivotLoaded($source)]"
         /// </summary>

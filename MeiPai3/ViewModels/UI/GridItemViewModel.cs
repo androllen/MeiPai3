@@ -8,32 +8,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WeYa.Domain;
 
 namespace MeiPai3.ViewModels
 {
     public class GridItemViewModel
     {
-        public string Name
+        public string RecommendCaption
         {
             get;
             private set;
         }
 
-        public string Image
+        public string RecommendCoverPic
         {
             get;
             private set;
+        }
+        public Media Media
+        {
+            get;
+            private set;
+        }
+ 
+        public GridItemViewModel(string caption, string pic, Media media)
+        {
+            RecommendCaption = caption;
+            RecommendCoverPic = pic;
+            Media = media;
         }
 
-        public string Id
-        {
-            get;
-            private set;
-        }
-        public GridItemViewModel(string name,string image)
-        {
-            Name = name;
-            Image = image;
-        }
+
     }
 }

@@ -17,17 +17,17 @@ using WeYa.Utils;
 
 namespace MeiPai3.ViewModels.DataSource
 {
-    public class GeneratingDataSource : IVirtualisedDataSource<GridItemViewModel>
+    public class GeneratingDataSource : IVirtualisedDataSource<Hot>
     {
         private readonly int _count;
         private int _page;
-        private readonly BindableCollection<GridItemViewModel> items = null;
+        private readonly BindableCollection<Hot> items = null;
         private readonly MainService _service;
         private readonly TopicsType _topicsType;
         public GeneratingDataSource(MainService service, TopicsType type=TopicsType.Baby)
         {
             _count = 1000000;
-            items = new BindableCollection<GridItemViewModel>();
+            items = new BindableCollection<Hot>();
             _topicsType = type;
             _service = service;
         }
@@ -41,25 +41,17 @@ namespace MeiPai3.ViewModels.DataSource
         {
             return Task.FromResult(_page++);
         }
-        public async Task<BindableCollection<GridItemViewModel>> GetItemsAsync(uint startIndex, uint count)
+        public async Task<BindableCollection<Hot>> GetItemsAsync(uint startIndex, uint count)
         {
             int total = ((int)count == 1 ? 18 : (int)count);
 
-            items.Clear();
-           
-            await _service.HotGet<Hot>(new ServiceArgument() { id = 1, feature = "new", page = _page}, Item =>
+            await _service.HotGet(new ServiceArgument() { id = 1, feature = "new", page = _page}, Item =>
             {
-                var view = new BindableCollection<GridItemViewModel>();
-                for (int i = 0; i < Item.Count; i++)
+                var view = new BindableCollection<Hot>();
+                foreach(var item in Item)
                 {
-                    var vm = new GridItemViewModel(Item[i].recommend_caption, Item[i].recommend_cover_pic);
-                    view.Add(vm);
+                    items.Add(item);
                 }
-                foreach (var hot in view)
-                {
-                    items.Add(hot);
-                }
-
             });
 
             return items;
